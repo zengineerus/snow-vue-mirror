@@ -1,0 +1,14 @@
+{
+    "name": "app",
+    "version": "0.1.0",
+    "description": "Snow Vue App",
+    "license": "NONE",
+    "private": true,
+    "scripts": {
+      "start": "echo 'implement start app'",
+      "test": "echo 'implement test app'",
+      "build": "echo 'implement build app'",
+      "deploy": "echo 'implement deploy app'"
+    }
+  }
+  

@@ -1,0 +1,13 @@
+{
+  "name": "api",
+  "version": "0.1.0",
+  "description": "Api for Snow Vue App",
+  "license": "NONE",
+  "private": true,
+  "scripts": {
+    "start": "echo 'implement start api'",
+    "test": "echo 'implement test api'",
+    "build": "echo 'implement build api'",
+    "deploy": "echo 'implement deploy api'"
+  }
+}
