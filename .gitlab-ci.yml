@@ -1,0 +1,14 @@
+build site:
+  image: node:latest
+  stage: build
+  script:
+    - yarn install --progress=false
+    - yarn run build
+
+unit test:
+  image: node:latest
+  stage: test
+  script:
+    - yarn install --progress=false
+    - yarn test
+    

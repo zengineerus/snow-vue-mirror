@@ -1,7 +1,10 @@
 {
     "name": "snow-vue",
     "private": true,
-    "workspaces": ["app", "api"],
+    "workspaces": [
+        "app",
+        "api"
+    ],
     "scripts": {
         "start": "yarn workspaces run start",
         "start:app": "yarn workspace app start",
@@ -15,5 +18,8 @@
         "deploy": "yarn workspaces run deploy",
         "deploy:app": "yarn workspace app deploy",
         "deploy:api": "yarn workspace api deploy"
+    },
+    "dependencies": {
+        "vue": "^2.6.10"
     }
 }
