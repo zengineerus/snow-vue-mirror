@@ -1,0 +1,258 @@
+GIT Basics
+
+------------------------------------------
+initial setup
+------------------------------------------
+
+create directory
+
+git init
+
+look in .git folder
+
+git help whatever
+
+------------------------------------------
+file mods and commits
+------------------------------------------
+
+git status
+
+create 2 files
+
+git status
+
+git add
+
+git status
+
+git commit
+
+git status
+
+modify file
+
+git status
+
+git diff
+
+git checkout
+
+modify file
+
+git commit
+
+git status
+
+------------------------------------------
+LOG
+------------------------------------------
+
+git log
+
+what are git SHAs?
+
+------------------------------------------
+3 trees (add, reset, commit)
+------------------------------------------
+
+create 3rd file
+
+git status
+
+git add
+
+git reset
+
+what is HEAD
+
+HEAD~, HEAD^
+
+------------------------------------------
+Branching
+------------------------------------------
+
+git branch
+
+what is master?
+
+git branch new_branch
+
+git branch
+
+git checkout new_branch
+
+make change
+
+git commit
+
+git checkout master
+
+see no change
+
+git log
+
+------------------------------------------
+Merging
+------------------------------------------
+
+git merge new_branch
+
+see changes
+
+git log
+
+see history
+
+git branch
+
+git branch -d new_branch
+
+git checkout -b newer_branch
+
+make changes
+
+git commit
+
+git checkout master
+
+git branch -d newer_branch
+
+git branch -D newer_branch
+
+------------------------------------------
+Conflict
+------------------------------------------
+
+git checkout -b conflicting_branch
+
+make change to existing file
+
+git checkout master
+
+make different change to same file
+
+git merge conflicting_branch
+
+git status
+
+show file markings
+
+resolve conflict
+
+git add .
+
+git commit
+
+------------------------------------------
+Remotes
+------------------------------------------
+
+git remote -v
+
+create wwt GitHub repo
+
+git add origin wwt origin
+
+git push origin master:master
+
+git push origin master
+
+git push
+
+remove whole directory
+
+git clone
+
+git log
+
+create new clone in different directory
+
+make change, commit, push
+
+go to origin directory
+
+git fetch
+
+git status
+
+git reset
+or
+git rebase
+
+------------------------------------------
+Rebase
+------------------------------------------
+make changes in other clone, push changes
+
+go back to original repo and fetch
+
+make a new change
+
+try to push
+
+git log
+
+git rebase
+
+git log
+
+------------------------------------------
+Github UI / Pull requests
+------------------------------------------
+
+show history
+
+create new branch
+
+make a change
+
+commit
+
+push
+
+show in GitHub
+
+create pull request
+
+------------------------------------------
+Misc
+------------------------------------------
+git clean
+-f force to actually do it
+-d include directories
+-x ignore .gitignore files
+
+git reflog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
