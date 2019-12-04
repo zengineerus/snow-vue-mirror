@@ -10,11 +10,11 @@ Follow the links below to install software needed for this project.
 
 #### Poject Wide
 
-* [Yarn](https://yarnpkg.com/en/docs/install)
+- [Yarn](https://yarnpkg.com/en/docs/install)
 
 #### Application
 
-TBD
+https://nodejs.org/en/download/
 
 #### API
 
