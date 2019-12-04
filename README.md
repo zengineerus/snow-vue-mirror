@@ -14,7 +14,12 @@ Follow the links below to install software needed for this project.
 
 #### Application
 
-https://nodejs.org/en/download/
+https://nodejs.org/en/download/ 12.13.1
+npm install -g vue-cli
+vue init webpack my-project
+
+Link to App dynamics dashboard:
+https://wwt.saas.appdynamics.com/controller/#/location=EUM_WEB_MAIN_DASHBOARD&timeRange=last_30_minutes.BEFORE_NOW.-1.-1.30&application=4212185
 
 #### API
 

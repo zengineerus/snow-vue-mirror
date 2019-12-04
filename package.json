@@ -1,25 +1,20 @@
 {
-    "name": "snow-vue",
-    "private": true,
-    "workspaces": [
-        "app",
-        "api"
-    ],
-    "scripts": {
-        "start": "yarn workspaces run start",
-        "start:app": "yarn workspace app start",
-        "start:api": "yarn workspace api start",
-        "test": "yarn workspaces run test",
-        "test:app": "yarn workspace app test",
-        "test:api": "yarn workspace api test",
-        "build": "yarn workspaces run build",
-        "build:app": "yarn workspace app build",
-        "build:api": "yarn workspace api build",
-        "deploy": "yarn workspaces run deploy",
-        "deploy:app": "yarn workspace app deploy",
-        "deploy:api": "yarn workspace api deploy"
-    },
-    "dependencies": {
-        "vue": "^2.6.10"
-    }
+  "name": "snow-vue",
+  "private": true,
+  "workspaces": [
+    "app",
+    "api"
+  ],
+  "scripts": {
+    "start": "yarn workspaces run start",
+    "start:app": "yarn workspace snow-vue start",
+    "start:api": "yarn workspace api start",
+    "test": "yarn workspaces run test",
+    "test:app": "yarn workspace snow-vue test",
+    "test:api": "yarn workspace api test",
+    "e2e": "yarn workspace snow-vue e2e"
+  },
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
