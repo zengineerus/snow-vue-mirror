@@ -29,7 +29,6 @@ Resort APIs
 **Keystone**
 
 * Weather API data: [https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader](https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader)
-    - Might require a scraper to get the id that is passed to the API
 
 **Loveland**
 
@@ -54,12 +53,8 @@ Resort APIs
 
 **Breckenridge**
 
-* Weather API: [https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?\_=157565342103](https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?_=157565342103)
-* Terrain & Lift status: [https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?\_=157565352924](https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?_=157565352924)
-* Snow report: [https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?\_=157565359353](https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?_=157565359353)
+* Weather API: [https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader](https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader)
 
 **Vail**
 
-* Snow and Weather data API: [https://www.vail.com/api/PageApi/GetWeatherDataForHeader?\_=157565790933](https://www.vail.com/api/PageApi/GetWeatherDataForHeader?_=157565790933)
-* Lift and run status API: [https://www.vail.com/api/PageApi/GetWeatherDataForHeader?\_=157565795462](https://www.vail.com/api/PageApi/GetWeatherDataForHeader?_=157565795462)
-    - same qualification for Keystone, might need to scrape the ID to pass to the API
+* Snow and Weather data API: [https://www.vail.com/api/PageApi/GetWeatherDataForHeader](https://www.vail.com/api/PageApi/GetWeatherDataForHeader)
