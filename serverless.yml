@@ -1,0 +1,31 @@
+service: snowballers
+provider:
+  name: aws
+  runtime: python3.8
+  stage: ${opt:stage, self:custom.defaultStage}
+  profile: ${self:custom.profiles.${self:provider.stage}}
+package:
+  exclude:
+    - python_learning_materials/**
+    - app/**
+    - .gitignore
+    - .gitlab-ci.yml
+    - package-lock.json
+    - package.json
+    - README.md
+    - yarn.lock
+    - api/package.json
+    - api/README.md
+    - api/keystone/keystone-spec.py
+custom:
+  defaultStage: dev
+  profiles:
+    dev: devProfile
+    prod: prodProfile
+functions:
+  hello:
+    handler: api/handlers/hello.helloHandler
+    events:
+      - http:
+          path: hello
+          method: get

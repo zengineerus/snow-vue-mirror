@@ -10,7 +10,7 @@ Follow the links below to install software needed for this project.
 
 #### Poject Wide
 
-* [Yarn](https://yarnpkg.com/en/docs/install)
+- [Yarn](https://yarnpkg.com/en/docs/install)
 
 #### Application
 
@@ -79,3 +79,11 @@ Deploy the `production` api.
 Deploy the `production` application.
 
 > NOTE: Run `yarn build:app` before this command.
+
+# Python
+
+# AWS
+
+    Before you can run 'sls deploy' you must create a '~/.aws/credentials' file with `[devProfile]` and `[prodProfile]` with defined AKID (Access Key ID) and Secret Keys.
+
+### Setup
