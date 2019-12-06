@@ -37,12 +37,12 @@ Resort APIs
 
 **Copper**
 
-* Weather forecast API: [https://www.coppercolorado.com/api/v1/dor/weathe](https://www.coppercolorado.com/api/v1/dor/weather)
+* Weather forecast API: [https://www.coppercolorado.com/api/v1/dor/weather](https://www.coppercolorado.com/api/v1/dor/weather)
 * Snow conditions API: [https://www.coppercolorado.com/api/v1/dor/condition](https://www.coppercolorado.com/api/v1/dor/condition)
 
 **Eldora**
 
-* Weather forecast API: [https://www.eldora.com/api/v1/dor/weathe](https://www.eldora.com/api/v1/dor/weather)
+* Weather forecast API: [https://www.eldora.com/api/v1/dor/weather](https://www.eldora.com/api/v1/dor/weather)
 * Snow conditions API: [https://www.eldora.com/api/v1/dor/conditions](https://www.eldora.com/api/v1/dor/conditions)
 
 **Winter Park**
