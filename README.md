@@ -84,6 +84,6 @@ Deploy the `production` application.
 
 # AWS
 
-    Before you can run 'sls deploy' you must create a '~/.aws/credentials' file with `[devProfile]` and `[prodProfile]` with defined AKID (Access Key ID) and Secret Keys.
+> Before you can run 'sls deploy' you must create a '~/.aws/credentials' file with `[devProfile]` and `[prodProfile]` with defined AKID (Access Key ID) and Secret Keys.
 
 ### Setup
