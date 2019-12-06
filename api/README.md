@@ -24,30 +24,42 @@ CPD - Calls per day
 - [Weather Underground](https://www.wunderground.com/api/)
 
 Resort APIs
-
 ---
 
-Keystone
-    - Weather API data: https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader 
-        - Might require a scraper to get the id that is passed to the API
-Loveland
-    - Snow report (also has aggregated trail/lift data) - https://skiloveland.com/snow-report/
-    - Trail & Lift report (individual trail/lift data) - https://skiloveland.com/trail-lift-report/
-Copper
-    - Weather forecast API: https://www.coppercolorado.com/api/v1/dor/weather
-    - Snow conditions API - https://www.coppercolorado.com/api/v1/dor/conditions
-Eldora
-    - Weather forecast API: https://www.eldora.com/api/v1/dor/weather
-    - Snow conditions API: https://www.eldora.com/api/v1/dor/conditions 
-Winter Park
-    - Weather API: https://mtnpowder.com/feed/5/weather
-    - Webcam feed API: https://mtnpowder.com/feed/5/webcams
-    - Lift info API: https://mtnpowder.com/feed/5/lifts
-Breck
-    - Weather API: https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?_=1575653421034
-    - Terrain & Lift status: https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?_=1575653529246
-    - Snow report - https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?_=1575653593533
-Vail
-     - Snow and Weather data API - https://www.vail.com/api/PageApi/GetWeatherDataForHeader?_=1575657909336
-      - Lift and run status API - https://www.vail.com/api/PageApi/GetWeatherDataForHeader?_=1575657954626
-        - same qualification for Keystone, might need to scrape the ID to pass to the API
+**Keystone**
+
+* Weather API data: [https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader](https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader)
+    - Might require a scraper to get the id that is passed to the API
+
+**Loveland**
+
+* Snow report (also has aggregated trail/lift data): [https://skiloveland.com/snow-report](https://skiloveland.com/snow-report)
+* Trail & Lift report (individual trail/lift data): [https://skiloveland.com/trail-lift-report](https://skiloveland.com/trail-lift-report)
+
+**Copper**
+
+* Weather forecast API: [https://www.coppercolorado.com/api/v1/dor/weathe](https://www.coppercolorado.com/api/v1/dor/weather)
+* Snow conditions API: [https://www.coppercolorado.com/api/v1/dor/condition](https://www.coppercolorado.com/api/v1/dor/condition)
+
+**Eldora**
+
+* Weather forecast API: [https://www.eldora.com/api/v1/dor/weathe](https://www.eldora.com/api/v1/dor/weather)
+* Snow conditions API: [https://www.eldora.com/api/v1/dor/conditions](https://www.eldora.com/api/v1/dor/conditions)
+
+**Winter Park**
+
+* Weather API: [https://mtnpowder.com/feed/5/weather](https://mtnpowder.com/feed/5/weather)
+* Webcam feed API: [https://mtnpowder.com/feed/5/webcam](https://mtnpowder.com/feed/5/webcam)
+* Lift info API: [https://mtnpowder.com/feed/5/lift](https://mtnpowder.com/feed/5/lift)
+
+**Breckenridge**
+
+* Weather API: [https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?\_=157565342103](https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?_=157565342103)
+* Terrain & Lift status: [https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?\_=157565352924](https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?_=157565352924)
+* Snow report: [https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?\_=157565359353](https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader?_=157565359353)
+
+**Vail**
+
+* Snow and Weather data API: [https://www.vail.com/api/PageApi/GetWeatherDataForHeader?\_=157565790933](https://www.vail.com/api/PageApi/GetWeatherDataForHeader?_=157565790933)
+* Lift and run status API: [https://www.vail.com/api/PageApi/GetWeatherDataForHeader?\_=157565795462](https://www.vail.com/api/PageApi/GetWeatherDataForHeader?_=157565795462)
+    - same qualification for Keystone, might need to scrape the ID to pass to the API
