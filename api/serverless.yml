@@ -20,12 +20,18 @@ package:
 custom:
   defaultStage: dev
   profiles:
-    dev: devProfile
-    prod: prodProfile
+    dev: dev
+    prod: prod
 functions:
   hello:
-    handler: api/handlers/hello.helloHandler
+    handler: Handlers/hello.helloHandler
     events:
-      - http:
+      - https:
           path: hello
           method: get
+  keystone:
+    handler: Handlers/keystone.keystoneHandler
+    events:
+      - https:
+          path: keystone
+          method: get          
