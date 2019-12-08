@@ -203,3 +203,13 @@ end keystone example object
 
 google travel time api
 https://developers.google.com/maps/documentation/distance-matrix/intro
+
+TODO: 
+ - output validation from external API's
+ - change unit tests to reflect new inheritance structure
+ - add unit tests for new getters/setters and travel time functionality
+ - add endpoint tests for all paths of keystone handler
+ - add tests to gitlab ci pipeline
+ - add serverless deploy to **dev** to gitlab ci pipeline for feature branches
+ - add serverless deploy to **dev** and **prod** to gitlab ci pipeline for master branch
+ - add AppDynamics to keystone handler

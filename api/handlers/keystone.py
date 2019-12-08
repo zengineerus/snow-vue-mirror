@@ -4,15 +4,15 @@ from Library.Keystone.Keystone import Keystone
 #TOPIC: could be two separate lambda
 def keystoneHandler(event, context):
     content = {}
-    keystone = Keystone()
+    keystone = Keystone(event["queryStringParameters"]["userLocation"])
 
     try:
-        content["SnowReport"] = keystone.setStatus().setSnowReportSections().getSnowReportSections()
+        content["SnowReport"] = keystone.runSnowReport()
     except e:
         content["SnowReport"] = "Unavailable"
 
     try:
-        content["TravelTime"] = keystone.setTravelUrl(event.body.userLocation).setDistanceMatrixResponse().setTravelTime().getTravelTime() 
+        content["TravelTime"] = keystone.runTravelTimeReport()
     except e:
         content["TravelTime"] = "Unavailable"
 
@@ -22,6 +22,6 @@ def keystoneHandler(event, context):
         status = 200
 
     return {
-        'statusCode': status,
-        'body': content
+        "statusCode": status,
+        "body": content
     }
