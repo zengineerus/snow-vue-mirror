@@ -20,8 +20,8 @@ package:
 custom:
   defaultStage: dev
   profiles:
-    dev: devProfile
-    prod: prodProfile
+    dev: dev
+    prod: prod
 functions:
   hello:
     handler: api/handlers/hello.helloHandler
