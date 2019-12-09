@@ -6,32 +6,24 @@ provider:
   profile: ${self:custom.profiles.${self:provider.stage}}
 package:
   exclude:
-    - python_learning_materials/**
-    - app/**
-    - .gitignore
-    - .gitlab-ci.yml
     - package-lock.json
     - package.json
     - README.md
-    - yarn.lock
-    - api/package.json
-    - api/README.md
-    - api/keystone/keystone-spec.py
+    - weather/keystone_weather_test.py
+    - swagger.yml
+    - config.py
+    - __init__.py
 custom:
   defaultStage: dev
   profiles:
     dev: dev
     prod: prod
 functions:
-  hello:
-    handler: Handlers/hello.helloHandler
+  weather:
+    handler: weather/weather_handler.weatherHandler
     events:
       - http:
-          path: hello
+          path: weather
           method: get
-  keystone:
-    handler: Handlers/keystone.keystoneHandler
-    events:
-      - http:
-          path: keystone
-          method: get
+    exclude:
+      - traffic/**

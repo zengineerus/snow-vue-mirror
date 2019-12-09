@@ -1,10 +1,9 @@
-import api.handlers.Library.Resort as Resort
+from weather.weather import Weather
 
 
-class Keystone(Resort):
-    def __init__(self, userLocation):
-        super().__init__(self, "https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader",
-                         "100+Dercum+Square+Keystone+CO", userLocation)
+class KeystoneWeather(Weather):
+    def __init__(self):
+        super().__init__("https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader")
 
 # Resort Snow Report Sections Functions
     def setSnowReportSections(self):
@@ -18,4 +17,6 @@ class Keystone(Resort):
         print(self.snowReportSections)
 
     def runSnowReport(self):
-        self.setStatus().setSnowReportSections().getSnowReportSections()
+        super().setStatus()
+        self.setSnowReportSections()
+        return self.getSnowReportSections()
