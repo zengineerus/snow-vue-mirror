@@ -35,6 +35,33 @@ module.exports = {
       }
     },
 
+    "ios" : {
+      "selenium_start_process": false,
+      "selenium_port" : 4723,
+      "selenium_host" : "127.0.0.1",
+      "silent": true,
+      "desiredCapabilities" : {
+        "browserName" : "Safari",
+        "platformName" : "iOS",
+        "platformVersion" : "9.3",
+        "deviceName" : "iPhone 6s Plus"
+      }
+    },
+
+    android : {
+      "selenium_start_process": false,
+      "selenium_port" : 4723,
+      "selenium_host" : "127.0.0.1",
+      "silent": true,
+      "desiredCapabilities": {
+          "browserName": "Chrome",
+          "platformName": "Android",
+          "platformVersion": "4.4",
+          "device": "CQ3000QTJB",
+          "deviceName": "CQ3000QTJB"
+      }
+  },
+
     firefox: {
       desiredCapabilities: {
         browserName: 'firefox',
