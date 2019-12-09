@@ -1,7 +1,9 @@
 import json
-from library.keystone.keystone import keystone as Keystone
+from api.handlers.library.Keystone import Keystone
 
-#TOPIC: could be two separate lambda
+# TOPIC: could be two separate lambda
+
+
 def keystoneHandler(event, context):
     content = {}
     keystone = Keystone(event["queryStringParameters"]["userLocation"])

@@ -1,3 +1,3 @@
 config = {
-	"apiKey": "[YOUR_API_KEY]"
+    "googleApiKey": "[YOUR_API_KEY]"
 }

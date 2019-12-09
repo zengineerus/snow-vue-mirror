@@ -26,12 +26,12 @@ functions:
   hello:
     handler: Handlers/hello.helloHandler
     events:
-      - https:
+      - http:
           path: hello
           method: get
   keystone:
     handler: Handlers/keystone.keystoneHandler
     events:
-      - https:
+      - http:
           path: keystone
-          method: get          
+          method: get
