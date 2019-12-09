@@ -324,6 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.cordova.hellocordova;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Debug;
 		};
@@ -347,6 +348,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.cordova.hellocordova;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Release;
 		};
@@ -390,6 +392,7 @@
 				SKIP_INSTALL = NO;
 				WK_WEB_VIEW_ONLY = 0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.cordova.hellocordova;
+				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Debug;
 		};
@@ -431,6 +434,7 @@
 				SKIP_INSTALL = NO;
 				WK_WEB_VIEW_ONLY = 0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.cordova.hellocordova;
+				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Release;
 		};
