@@ -1,14 +1,19 @@
-build site:
-  image: node:latest
-  stage: build
-  script:
-    - yarn install --progress=false
-    - yarn run build
+stages:
+  - test
+  # - deploy-to-dev
+  # - deploy-to-prod
+
+# build site:
+#   image: node:latest
+#   stage: build
+#   script:
+#     - yarn install --progress=false
+#     - yarn run build
+
+#TODO: add creds to env var
 
 unit test:
-  image: node:latest
   stage: test
   script:
-    - yarn install --progress=false
-    - yarn test
-    
+    - apt-get install -y python3
+    - python3 -m unittest "api/weather/keystone_weather_test.py"
