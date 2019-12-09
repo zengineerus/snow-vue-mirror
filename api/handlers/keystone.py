@@ -1,5 +1,5 @@
 import json
-from Library.Keystone.Keystone import Keystone
+from library.keystone.keystone import keystone as Keystone
 
 #TOPIC: could be two separate lambda
 def keystoneHandler(event, context):

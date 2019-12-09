@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, Mock
-from Keystone import Keystone
+from keystone import Keystone
 import json
 
 

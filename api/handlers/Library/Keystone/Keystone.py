@@ -1,4 +1,4 @@
-from .. import Resort as Resort 
+from .. import resort as Resort 
 
 class Keystone(Resort):
     def __init__(self, userLocation):

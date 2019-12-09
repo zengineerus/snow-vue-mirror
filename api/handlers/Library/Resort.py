@@ -1,7 +1,7 @@
 import urllib.request as urllib
 import json
 import datetime
-import Config as config
+import config
 import re
 
 class Resort():
