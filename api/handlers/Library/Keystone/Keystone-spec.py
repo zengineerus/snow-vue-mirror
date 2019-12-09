@@ -13,7 +13,8 @@ class TestKeystone(unittest.TestCase):
 
             mock_response = urlopen_mock.return_value
             mock_response.read.return_value = {"key": "value"}
-            self.assertEqual(Keystone.setStatus().getSnowReportSections(), {"key":"value"})
+            self.assertEqual(Keystone.setStatus(
+            ).getSnowReportSections(), {"key": "value"})
 
     def test_setStatus_raises_exception_when_read_returns_str(self):
         with patch('urllib.request.urlopen') as urlopen_mock, patch('urllib.request.Request') as urlrequest_mock:
@@ -28,7 +29,7 @@ class TestKeystone(unittest.TestCase):
                 Keystone.setStatus()
             self.assertTrue("Unavailable" in str(context.exception))
 
-    def test_setStatus_raises_exception_when_read_returns_none
+    def test_setStatus_raises_exception_when_read_returns_none(self):
         with patch('urllib.request.urlopen') as urlopen_mock, patch('urllib.request.Request') as urlrequest_mock:
             Keystone = Keystone()
             Keystone.statusUrl = "test"
