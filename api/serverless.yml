@@ -29,3 +29,12 @@ functions:
     package:
       exclude:
         - traffic/**
+  traffic:
+    handler: traffic/traffic_handler.trafficHandler
+    events:
+      - http:
+          path: traffic
+          method: get
+    package:
+      exclude:
+        - weather/**
