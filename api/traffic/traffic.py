@@ -7,13 +7,15 @@ import random
 # import googlemaps
 
 # we don't have an api key yet, returning stub data for now
-class googlemaps: 
+
+
+class googlemaps:
     def Client(key):
         return googlemaps()
 
     def distance_matrix(self, origins, destinations):
         return {
-           "rows":[{"elements":[{"duration":{"value": random.randint(8000, 10000)}}]}]
+            "rows": [{"elements": [{"duration": {"value": random.randint(8000, 10000)}}]}]
         }
 
 
@@ -37,7 +39,8 @@ class Traffic():
 
     def make_google_api_call(self):
         try:
-            travel = self.gmaps.distance_matrix([self.user_location], [self.resort_location])
+            travel = self.gmaps.distance_matrix(
+                [self.user_location], [self.resort_location])
             seconds = travel["rows"][0]["elements"][0]["duration"]["value"]
             self.duration = self.time_in_hours_and_minutes(seconds)
         except Exception as e:
