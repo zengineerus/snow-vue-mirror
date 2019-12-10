@@ -11,7 +11,7 @@ class googlemaps:
     def Client(key):
         return googlemaps()
 
-    def distance_matrix(origins, destinations):
+    def distance_matrix(self, origins, destinations):
         return {
            "rows":[{"elements":[{"duration":{"value": random.randint(8000, 10000)}}]}]
         }
@@ -41,7 +41,7 @@ class Traffic():
             seconds = travel["rows"][0]["elements"][0]["duration"]["value"]
             self.duration = self.time_in_hours_and_minutes(seconds)
         except Exception as e:
-            self.duration = "unavailable"
+            self.duration = "unavailable" + str(e)
 
 #     def validateUserLocation(self):
 #         pattern = "\d{1,4} [\w\s]{1,20}(?:street|st|avenue|ave|road|rd|highway|hwy|square|sq|trail|trl|drive|dr|court|ct|park|parkway|pkwy|circle|cir|boulevard|blvd)\W?(?=\s|$)"
