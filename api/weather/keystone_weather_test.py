@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, Mock
-from keystone_weather import KeystoneWeather
+from weather.keystone_weather import KeystoneWeather
 import json
 
 

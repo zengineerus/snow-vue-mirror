@@ -5,6 +5,7 @@ provider:
   stage: ${opt:stage, self:custom.defaultStage}
   profile: ${self:custom.profiles.${self:provider.stage}}
 package:
+  individually: true
   exclude:
     - package-lock.json
     - package.json
@@ -25,5 +26,6 @@ functions:
       - http:
           path: weather
           method: get
-    exclude:
-      - traffic/**
+    package:
+      exclude:
+        - traffic/**
