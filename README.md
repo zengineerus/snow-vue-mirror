@@ -8,9 +8,11 @@ Aggregate ski weather data, snow conditions, webcam feeds and road conditions.
 
 Follow the links below to install software needed for this project.
 
-#### Poject Wide
+#### Project Wide
 
 - [Yarn](https://yarnpkg.com/en/docs/install)
+- export ANDROID_SDK_ROOT=/Users/dev1/Library/Android/sdk
+- export PATH=$PATH:$ANDROID_SDK_ROOT/tools:\$ANDROID_SDK_ROOT/platform-tools
 
 #### Application
 
