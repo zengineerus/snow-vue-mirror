@@ -1,9 +1,11 @@
-service: snowballers
+service: wwt-snow-vue-python
 provider:
   name: aws
   runtime: python3.8
   stage: ${opt:stage, self:custom.defaultStage}
   profile: ${self:custom.profiles.${self:provider.stage}}
+  deploymentBucket:
+    name: wwt-snow-vue-deploy
 package:
   individually: true
   exclude:
@@ -29,6 +31,7 @@ functions:
     package:
       exclude:
         - traffic/**
+    role: arn:aws:iam::963760208122:role/lambda_cli_role
   traffic:
     handler: traffic/traffic_handler.trafficHandler
     events:
@@ -38,3 +41,4 @@ functions:
     package:
       exclude:
         - weather/**
+    role: arn:aws:iam::963760208122:role/lambda_cli_role
