@@ -7,12 +7,14 @@
   ],
   "scripts": {
     "start": "yarn workspaces run start",
-    "start:app": "yarn workspace snow-vue start",
+    "start:app": "yarn workspace app start",
     "start:api": "yarn workspace api start",
     "test": "yarn workspaces run test",
-    "test:app": "yarn workspace snow-vue test",
+    "test:app": "yarn workspace app test",
     "test:api": "yarn workspace api test",
-    "e2e": "yarn workspace snow-vue e2e"
+    "e2e": "yarn workspace app e2e",
+    "docker:build": "yarn workspace app docker:build",
+    "interactive": "yarn workspace app interactive"
   },
   "dependencies": {
     "vue": "^2.6.10"

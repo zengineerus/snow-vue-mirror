@@ -11,13 +11,15 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "interactive": "docker run -p 8080:8080 -it snowvue /bin/bash",
+    "docker:build": "docker build -t snowvue .",
+    "docker": "docker run -p 8080:8080 snowvue"
   },
   "dependencies": {
-    "appium": "^1.15.1",
     "cordova-android": "8.1.0",
     "cordova-ios": "5.1.1",
-    "vue": "^2.5.2",
+    "vue": "2.6.10",
     "vue-router": "^3.0.1",
     "wd": "^1.11.4"
   },
