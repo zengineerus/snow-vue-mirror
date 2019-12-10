@@ -6,7 +6,7 @@ def weatherHandler(event, context):
     content = {}
     keystone = KeystoneWeather()
     try:
-        content["SnowReport"] = keystone.runSnowReport()
+        content["SnowReport"] = keystone.run_snow_report()
         status = 200
     except Exception:
         content["SnowReport"] = "Unavailable"

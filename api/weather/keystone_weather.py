@@ -1,4 +1,4 @@
-from weather.weather import Weather
+from api.weather.weather import Weather
 
 
 class KeystoneWeather(Weather):
@@ -6,17 +6,17 @@ class KeystoneWeather(Weather):
         super().__init__("https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader")
 
 # Resort Snow Report Sections Functions
-    def setSnowReportSections(self):
-        self.snowReportSections = self.status['SnowReportSections']
+    def set_snow_report_sections(self):
+        self.snow_report_sections = self.status['SnowReportSections']
 
-    def getSnowReportSections(self):
-        return self.snowReportSections
+    def get_snow_report_sections(self):
+        return self.snow_report_sections
 
-    def storeSnowReportSections(self):
+    def store_snow_report_sections(self):
         # store snowReportSections in dynamoDB
-        print(self.snowReportSections)
+        print(self.snow_report_sections)
 
-    def runSnowReport(self):
-        super().setStatus()
-        self.setSnowReportSections()
-        return self.getSnowReportSections()
+    def run_snow_report(self):
+        super().set_status()
+        self.set_snow_report_sections()
+        return self.get_snow_report_sections()
