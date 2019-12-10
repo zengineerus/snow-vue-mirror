@@ -3,8 +3,8 @@ import datetime
 import urllib.request as urllib
 
 
-class Weather():
-    def __init__(self, statusUrl, address, userLocation):
+class Weather:
+    def __init__(self, statusUrl):
         self.statusUrl = statusUrl
 
 # Resort Status Functions
