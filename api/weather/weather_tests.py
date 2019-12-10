@@ -18,4 +18,12 @@ class TestWeather(unittest.TestCase):
             })
 
     def test_set_status_failure(self):
-        weather = Weather("fakeUrl")
+        with patch('urllib.request.urlopen') as urlopen_mock, patch('urllib.request.Request') as urlrequest_mock:
+            weather = Weather("fakeUrl")
+            urlrequest_mock.return_value = "fail"
+
+            mock_response = urlopen_mock.return_value
+            mock_response.read.return_value = "fail"
+
+            weather.set_status()
+            self.assertEqual(weather.status, {"Error": "Unavailable"})

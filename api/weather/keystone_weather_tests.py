@@ -28,9 +28,8 @@ class TestKeystoneWeather(unittest.TestCase):
             mock_response = urlopen_mock.return_value
             mock_response.read.return_value = "test"
 
-            with self.assertRaises(Exception) as context:
-                keystoneWeather.set_status()
-            self.assertTrue("Unavailable" in str(context.exception))
+            keystoneWeather.set_status()
+            self.assertEqual(keystoneWeather.status, {"Error": "Unavailable"})
 
     def test_set_status_raises_exception_when_read_returns_none(self):
         with patch('urllib.request.urlopen') as urlopen_mock, patch('urllib.request.Request') as urlrequest_mock:
@@ -41,9 +40,8 @@ class TestKeystoneWeather(unittest.TestCase):
             mock_response = urlopen_mock.return_value
             mock_response.read.return_value = None
 
-            with self.assertRaises(Exception) as context:
-                keystoneWeather.set_status()
-            self.assertTrue("Unavailable" in str(context.exception))
+            keystoneWeather.set_status()
+            self.assertEqual(keystoneWeather.status, {"Error": "Unavailable"})
 
 
 if __name__ == '__main__':
