@@ -37,9 +37,7 @@ class TestTraffic(unittest.TestCase):
     traffic = Traffic("blah, blah", "ha, ha")
     traffic.gmaps.distance_matrix = MagicMock(side_effect = Exception("stuff's broke"))
     traffic.make_google_api_call()
-    self.assertEqual(traffic.duration, {
-      "errawr": "stuff's broke"
-    })
+    self.assertEqual(traffic.duration, "unavailable")
 
 if __name__ == '__main__':
     unittest.main()
