@@ -61,16 +61,26 @@ module.exports = {
     },
 
     android: {
-      selenium_start_process: false,
       selenium_port: 4723,
       selenium_host: "127.0.0.1",
-      silent: true,
       desiredCapabilities: {
+        appiumVersion: "1.15.1",
+        automationName: "UiAutomator2",
         browserName: "Chrome",
         platformName: "Android",
         platformVersion: "9",
         device: "emulator-5554",
-        deviceName: "emulator-5554"
+        deviceName: "emulator-5554",
+        avd: "Pixel_API_28",
+        avdArgs: "-netfast -noaudio -no-boot-anim",
+        autoGrantPermissions: true,
+        autoAcceptAlerts: true
+      },
+      selenium: {
+        start_process: false
+      },
+      appium: {
+        start_process: true
       }
     },
 
