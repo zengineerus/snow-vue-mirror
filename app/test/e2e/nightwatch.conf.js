@@ -1,73 +1,95 @@
-require('babel-register')
-var config = require('../../config')
+require("babel-register");
+var config = require("../../config");
 
 // http://nightwatchjs.org/gettingstarted#settings-file
 module.exports = {
-  src_folders: ['test/e2e/specs'],
-  output_folder: 'test/e2e/reports',
-  custom_assertions_path: ['test/e2e/custom-assertions'],
+  src_folders: ["test/e2e/specs"],
+  output_folder: "test/e2e/reports",
+  custom_assertions_path: ["test/e2e/custom-assertions"],
 
   selenium: {
     start_process: true,
-    server_path: require('selenium-server').path,
-    host: '127.0.0.1',
-    port: 4444,
+    server_path: require("selenium-server").path,
+    host: "127.0.0.1",
+    port: 4723,
     cli_args: {
-      'webdriver.chrome.driver': require('chromedriver').path
+      "webdriver.chrome.driver": require("chromedriver").path
     }
   },
 
   test_settings: {
     default: {
-      selenium_port: 4444,
-      selenium_host: 'localhost',
+      selenium_port: 4723,
+      selenium_host: "localhost",
       silent: true,
       globals: {
-        devServerURL: 'http://localhost:' + (process.env.PORT || config.dev.port)
+        devServerURL:
+          "http://localhost:" + (process.env.PORT || config.dev.port)
       }
     },
 
     chrome: {
       desiredCapabilities: {
-        browserName: 'chrome',
+        browserName: "chrome",
         javascriptEnabled: true,
-        acceptSslCerts: true
+        acceptSslCerts: true,
+        chromeOptions: {
+          w3c: false,
+          args: ["--no-sandbox"]
+        }
       }
     },
 
-    "ios" : {
-      "selenium_start_process": false,
-      "selenium_port" : 4723,
-      "selenium_host" : "127.0.0.1",
-      "silent": true,
-      "desiredCapabilities" : {
-        "browserName" : "Safari",
-        "platformName" : "iOS",
-        "platformVersion" : "9.3",
-        "deviceName" : "iPhone 6s Plus"
+    ios: {
+      selenium_port: 4723,
+      selenium_host: "127.0.0.1",
+      desiredCapabilities: {
+        appiumVersion: "1.15.1",
+        automationName: "xcuitest",
+        browserName: "Safari",
+        platformName: "iOS",
+        platformVersion: "12.2",
+        deviceName: "iPhone 6",
+        waitForAppScript: "true"
+      },
+      selenium: {
+        start_process: false
+      },
+      appium: {
+        start_process: true
       }
     },
 
-    android : {
-      "selenium_start_process": false,
-      "selenium_port" : 4723,
-      "selenium_host" : "127.0.0.1",
-      "silent": true,
-      "desiredCapabilities": {
-          "browserName": "Chrome",
-          "platformName": "Android",
-          "platformVersion": "4.4",
-          "device": "CQ3000QTJB",
-          "deviceName": "CQ3000QTJB"
+    android: {
+      selenium_port: 4723,
+      selenium_host: "127.0.0.1",
+      desiredCapabilities: {
+        appiumVersion: "1.15.1",
+        automationName: "UiAutomator2",
+        browserName: "Chrome",
+        platformName: "Android",
+        platformVersion: "9",
+        device: "emulator-5554",
+        deviceName: "emulator-5554",
+        avd: "Pixel_API_28",
+        avdArgs: "-netfast -noaudio -no-boot-anim",
+        autoGrantPermissions: true,
+        autoAcceptAlerts: true
+      },
+      selenium: {
+        start_process: false
+      },
+      appium: {
+        start_process: true
       }
-  },
+    },
 
     firefox: {
       desiredCapabilities: {
-        browserName: 'firefox',
+        browserName: "firefox",
         javascriptEnabled: true,
         acceptSslCerts: true
       }
     }
   }
-}
+};
