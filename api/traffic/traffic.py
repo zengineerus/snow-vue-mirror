@@ -45,6 +45,13 @@ class Traffic():
             self.duration = self.time_in_hours_and_minutes(seconds)
         except Exception as e:
             self.duration = "Unavailable"
+
+    def get_response(self):
+        return {
+            "travel_time": self.duration,
+            "start_location": self.user_location,
+            "destination": self.resort_location,
+        }
 #     def validateUserLocation(self):
 #         pattern = "\d{1,4} [\w\s]{1,20}(?:street|st|avenue|ave|road|rd|highway|hwy|square|sq|trail|trl|drive|dr|court|ct|park|parkway|pkwy|circle|cir|boulevard|blvd)\W?(?=\s|$)"
 #         if re.search(pattern, self.userLocation):
