@@ -1,4 +1,8 @@
 .DS_Store
-node_modules/
-app/selenium-server.log
+*.pyc
+/api/.serverless/*
+node_modules
 **/node_modules/
+app/test/e2e/reports
+selenium-debug.log
+selenium-server.log
