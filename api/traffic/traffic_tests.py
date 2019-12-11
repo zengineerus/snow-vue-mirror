@@ -41,19 +41,16 @@ class TestTraffic(unittest.TestCase):
         traffic.make_google_api_call()
         self.assertEqual(traffic.duration, "Unavailable")
 
-
-  def test_get_Response(self):
-
-    traffic = Traffic("foo", "bar")
-    traffic.duration = "10 thousand years"
-
-    expected = {
-          "travel_time": "10 thousand years",
-          "start_location": "foo",
-          "destination": "bar",
+    def test_get_response(self):
+        traffic = Traffic("foo", "bar")
+        traffic.duration = "10 thousand years"
+        expected = {
+            "travel_time": "10 thousand years",
+            "start_location": "foo",
+            "destination": "bar",
         }
-        
-    actual = traffic.get_response()
+        actual = traffic.get_response()
+
 
 if __name__ == '__main__':
     unittest.main()
