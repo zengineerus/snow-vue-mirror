@@ -1,22 +1,18 @@
-import urllib
-import urllib2
+import urllib.parse
+import urllib.request
 import json
 
-url = 'http://server.lvh.me:4567/users'
+url = 'https://jsonplaceholder.typicode.com/posts'
 auth_token = 'c775bcfe-8a33-4b28-925f-7717527c5ffa'
 headers = {'Authorization': auth_token}
 payload = {
-        'name': 'Michael Foord',
-        'location': 'Northampton',
-        'language': 'Python'
-         }
-encode_payload = urllib.urlencode(payload)
-request = urllib2.Request(url, encode_payload, headers)
+    'name': 'Michael Foord',
+    'location': 'Northampton',
+    'language': 'Python'
+}
+encode_payload = urllib.parse.urlencode(payload).encode('utf-8')
+request = urllib.request.Request(url)
 
-try:
-    response = urllib2.urlopen(request)
-    response_data = json.loads(response.read())
-    print "message: %s" % response_data['message']
-except urllib2.HTTPError as error:
-    print "error: %s - %s" % (error.code, error.reason)
-
+with urllib.request.urlopen(request, data=encode_payload) as f:
+    response = f.read()
+    print(response)
