@@ -11,8 +11,19 @@ Follow the links below to install software needed for this project.
 #### Project Wide
 
 - [Yarn](https://yarnpkg.com/en/docs/install)
+- npm install -g appium
+- npm install -g appium-doctor
+
+#### iOS Configuration
+
+- install XCode
+- run `appium-doctor --ios` to ensure there are no warnings that require fixing. You can ignore the "Optional" fixes.
+
+#### Android Configuration
+
+- export ANDROID_HOME=/Users/dev1/Library/Android/sdk
 - export ANDROID_SDK_ROOT=/Users/dev1/Library/Android/sdk
-- export PATH=$PATH:$ANDROID_SDK_ROOT/tools:\$ANDROID_SDK_ROOT/platform-tools
+- export PATH=$PATH:$ANDROID_HOME/tools:\$ANDROID_HOME/platform-tools
 
 #### Application
 
@@ -56,6 +67,14 @@ Start a single run test suite for the `development` api.
 ### `yarn test:api`
 
 Start a single run test suite for the `development` application.
+
+### `yarn e2e`
+
+Runs e2e tests for web. Make sure `appium` is not running.
+
+### `yarn e2e-ios`
+
+Runs e2e tests for iOS. You must run `appium` in a separate terminal before running this.
 
 ### `yarn build`
 
