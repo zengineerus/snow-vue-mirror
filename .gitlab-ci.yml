@@ -13,6 +13,8 @@ stages:
 #TODO: add creds to env var
 
 unit test:
+  tags:
+    - DIND
   stage: test
   script:
     - apt-get install -y python3
