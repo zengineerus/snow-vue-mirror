@@ -23,52 +23,52 @@ CPD - Calls per day
 
 - [Weather Underground](https://www.wunderground.com/api/)
 
-Resort APIs
----
+## Resort APIs
 
 **Keystone**
 
-* Weather API data: [https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader](https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader)
+- Weather API data: [https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader](https://www.keystoneresort.com/api/PageApi/GetWeatherDataForHeader)
 
 **Loveland**
 
-* Snow report (also has aggregated trail/lift data): [https://skiloveland.com/snow-report](https://skiloveland.com/snow-report)
-* Trail & Lift report (individual trail/lift data): [https://skiloveland.com/trail-lift-report](https://skiloveland.com/trail-lift-report)
+- Snow report (also has aggregated trail/lift data): [https://skiloveland.com/snow-report](https://skiloveland.com/snow-report)
+- Trail & Lift report (individual trail/lift data): [https://skiloveland.com/trail-lift-report](https://skiloveland.com/trail-lift-report)
 
 **Copper**
 
-* Weather forecast API: [https://www.coppercolorado.com/api/v1/dor/weather](https://www.coppercolorado.com/api/v1/dor/weather)
-* Snow conditions API: [https://www.coppercolorado.com/api/v1/dor/condition](https://www.coppercolorado.com/api/v1/dor/condition)
+- Weather forecast API: [https://www.coppercolorado.com/api/v1/dor/weather](https://www.coppercolorado.com/api/v1/dor/weather)
+- Snow conditions API: [https://www.coppercolorado.com/api/v1/dor/condition](https://www.coppercolorado.com/api/v1/dor/condition)
 
 **Eldora**
 
-* Weather forecast API: [https://www.eldora.com/api/v1/dor/weather](https://www.eldora.com/api/v1/dor/weather)
-* Snow conditions API: [https://www.eldora.com/api/v1/dor/conditions](https://www.eldora.com/api/v1/dor/conditions)
+- Weather forecast API: [https://www.eldora.com/api/v1/dor/weather](https://www.eldora.com/api/v1/dor/weather)
+- Snow conditions API: [https://www.eldora.com/api/v1/dor/conditions](https://www.eldora.com/api/v1/dor/conditions)
 
 **Winter Park**
 
-* Weather API: [https://mtnpowder.com/feed/5/weather](https://mtnpowder.com/feed/5/weather)
-* Webcam feed API: [https://mtnpowder.com/feed/5/webcam](https://mtnpowder.com/feed/5/webcam)
-* Lift info API: [https://mtnpowder.com/feed/5/lift](https://mtnpowder.com/feed/5/lift)
+- Weather API: [https://mtnpowder.com/feed/5/weather](https://mtnpowder.com/feed/5/weather)
+- Webcam feed API: [https://mtnpowder.com/feed/5/webcam](https://mtnpowder.com/feed/5/webcam)
+- Lift info API: [https://mtnpowder.com/feed/5/lift](https://mtnpowder.com/feed/5/lift)
 
 **Breckenridge**
 
-* Weather API: [https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader](https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader)
+- Weather API: [https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader](https://www.breckenridge.com/api/PageApi/GetWeatherDataForHeader)
 
 **Vail**
 
-* Snow and Weather data API: [https://www.vail.com/api/PageApi/GetWeatherDataForHeader](https://www.vail.com/api/PageApi/GetWeatherDataForHeader)
+- Snow and Weather data API: [https://www.vail.com/api/PageApi/GetWeatherDataForHeader](https://www.vail.com/api/PageApi/GetWeatherDataForHeader)
 
 # Python
 
 # AWS
 
->`sls deploy` should default to the dev profile. Before you can run `sls deploy` or `sls deploy --aws-profile dev` you must create a `~/.aws/credentials` file with **[dev]** and **[prod]** with defined AKID (Access Key ID) and Secret Keys.
+> `sls deploy` should default to the dev profile. Before you can run `sls deploy` or `sls deploy --aws-profile dev` you must create a `~/.aws/credentials` file with **[dev]** and **[prod]** with defined AKID (Access Key ID) and Secret Keys.
 
 ### Setup
 
-********************************************************
-keystone example object:
+---
+
+```
 {
    "HeaderSettings":{
       "EnableCart":true,
@@ -197,19 +197,20 @@ keystone example object:
       "Style":""
    }
 }
+```
 
-end keystone example object
-********************************************************
+---
 
 google travel time api
 https://developers.google.com/maps/documentation/distance-matrix/intro
 
-TODO: 
- - output validation from external API's
- - change unit tests to reflect new inheritance structure
- - add unit tests for new getters/setters and travel time functionality
- - add endpoint tests for all paths of keystone handler
- - add tests to gitlab ci pipeline
- - add serverless deploy to **dev** to gitlab ci pipeline for feature branches
- - add serverless deploy to **dev** and **prod** to gitlab ci pipeline for master branch
- - add AppDynamics to keystone handler
+TODO:
+
+- output validation from external API's
+- change unit tests to reflect new inheritance structure
+- add unit tests for new getters/setters and travel time functionality
+- add endpoint tests for all paths of keystone handler
+- add tests to gitlab ci pipeline
+- add serverless deploy to **dev** to gitlab ci pipeline for feature branches
+- add serverless deploy to **dev** and **prod** to gitlab ci pipeline for master branch
+- add AppDynamics to keystone handler
