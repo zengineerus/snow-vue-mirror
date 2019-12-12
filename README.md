@@ -15,16 +15,18 @@ Follow the links below to install software needed for this project.
 #### Project Wide
 
 - [Yarn](https://yarnpkg.com/en/docs/install)
-- npm install -g appium
-- npm install -g appium-doctor
+- `npm install -g appium`
+- `npm install -g appium-doctor`
 
 #### iOS Configuration
 
-- install XCode
+- install XCode (download iPhone 6 simulator with iOS 12.2)
+- `brew install carthage`
 - run `appium-doctor --ios` to ensure there are no warnings that require fixing. You can ignore the "Optional" fixes.
 
 #### Android Configuration
 
+- install Android Studio
 - export ANDROID_HOME=/Users/dev1/Library/Android/sdk
 - export ANDROID_SDK_ROOT=/Users/dev1/Library/Android/sdk
 - export PATH=$PATH:$ANDROID_HOME/tools:\$ANDROID_HOME/platform-tools
