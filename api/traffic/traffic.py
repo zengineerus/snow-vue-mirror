@@ -1,22 +1,18 @@
 import urllib.request as urllib
 import re
-# from api.handlers.library.config import config
+import api.config as config
 import datetime
 import json
 import random
 # import googlemaps
 
-# we don't have an api key yet, returning stub data for now
 
-
-class googlemaps:
+class googlemaps():
     def Client(key):
         return googlemaps()
 
     def distance_matrix(self, origins, destinations):
-        return {
-            "rows": [{"elements": [{"duration": {"value": random.randint(8000, 10000)}}]}]
-        }
+        return {"rows": [{"elements": [{"duration": {"value": random.randint(8000, 10000)}}]}]}
 
 
 class Traffic():
