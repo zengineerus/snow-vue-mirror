@@ -1,4 +1,10 @@
-h3 { color: blue; }
+
+
+body{
+    background-color: #222;
+    min-height: 1000px;
+    color: white;
+}
 
 .center{
     display: flex;
@@ -6,8 +12,9 @@ h3 { color: blue; }
 }
 
 .center-container {
-    background-color: red;
+    background-color: #444;
     justify-content: center;
     max-width: 500px;
     min-width: 500px;
+    min-height: 600px;
 }
