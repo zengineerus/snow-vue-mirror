@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="center-container">
     <h1>Keystone</h1>
     <SnowFall></SnowFall>
     <TravelTime></TravelTime>
