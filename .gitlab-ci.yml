@@ -1,14 +1,53 @@
-build site:
-  image: node:latest
-  stage: build
-  script:
-    - yarn install --progress=false
-    - yarn run build
+.python-image: &python-image
+  image: "python:3.8"
+  before_script:
+    - python --version
 
-unit test:
-  image: node:latest
+.node-image: &node-image
+  image: "node"
+
+.selenium-image: &selenium-image
+  image: "registry-gitlab.asynchrony.com/proj-1678/snow-vue"
+
+stages:
+  - test
+  - e2e
+  # - deploy-to-dev
+  # - deploy-to-prod
+
+# build site:
+#   image: node:latest
+#   stage: build
+#   script:
+#     - yarn install --progress=false
+#     - yarn run build
+
+javascript unittest:
+  <<: *node-image
+  tags:
+    - snow-vue
   stage: test
   script:
-    - yarn install --progress=false
-    - yarn test
-    
+    - yarn install
+    - cd app
+    - yarn unit
+
+python unittest:
+  <<: *python-image
+  tags:
+    - snow-vue
+  stage: test
+  script:
+    - python3 -m unittest discover -p *_test*.py
+
+e2e:
+  <<: *selenium-image
+  tags:
+    - snow-vue
+  stage: e2e
+  script:
+    - yarn install
+    - yarn e2e
+  variables:
+    HUB_HOST: "hub"
+    HUB_PORT: 4723

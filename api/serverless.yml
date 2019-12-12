@@ -1,0 +1,44 @@
+service: wwt-snow-vue-python
+provider:
+  name: aws
+  runtime: python3.8
+  stage: ${opt:stage, self:custom.defaultStage}
+  profile: ${self:custom.profiles.${self:provider.stage}}
+  deploymentBucket:
+    name: wwt-snow-vue-deploy
+package:
+  individually: true
+  exclude:
+    - package-lock.json
+    - package.json
+    - README.md
+    - weather/keystone_weather_test.py
+    - swagger.yml
+    - config.py
+    - __init__.py
+custom:
+  defaultStage: dev
+  profiles:
+    dev: dev
+    prod: prod
+functions:
+  weather:
+    handler: weather/weather_handler.weatherHandler
+    events:
+      - http:
+          path: weather
+          method: get
+    package:
+      exclude:
+        - traffic/**
+    role: arn:aws:iam::963760208122:role/lambda_cli_role
+  traffic:
+    handler: traffic/traffic_handler.trafficHandler
+    events:
+      - http:
+          path: traffic
+          method: get
+    package:
+      exclude:
+        - weather/**
+    role: arn:aws:iam::963760208122:role/lambda_cli_role

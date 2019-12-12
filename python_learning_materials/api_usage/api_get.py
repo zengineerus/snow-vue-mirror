@@ -1,14 +1,14 @@
-import urllib
-import urllib2
+import urllib.parse
+import urllib.request
 import json
 
-url = 'http://server.lvh.me:4567/users'
-request = urllib2.Request(url)
+url = 'https://jsonplaceholder.typicode.com/posts'
+request = urllib.request.Request(url)
 
-try:
-    response = urllib2.urlopen(request)
-    response_data = json.loads(response.read())
-    print "message: %s" % str(response_data['users'])
-except urllib2.HTTPError as error:
-    print "error: %s - %s" % (error.code, error.reason)
+response = urllib.request.urlopen(request)
+response_data = json.loads(response.read())
+length = len(response_data)
 
+# for i in range(length):
+print(response_data)
+#print("message: %s") % str(response_data[i].userId)
