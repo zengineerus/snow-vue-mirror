@@ -27,7 +27,7 @@ def image_request(url, time):
         else:
             return None
     except Exception as e:
-        print(str(e))
+        print(url, str(e))
         return None
 
 
@@ -38,7 +38,7 @@ start = time - timedelta(hours=4)
 stop = time
 images = []
 while start <= stop:
-    url = "https://timecam.tv/mediablock/timestreams/vailresort/keystone-snowcam~640/hour/{date}_{hour}/keystone-snowcam~640_{date}_{hour}_{minute}_00_00.jpg"
+    url = "https://timecam.tv/mediablock/timestreams/vailresort/keystone-snowcam/hour/{date}_{hour}/keystone-snowcam_{date}_{hour}_{minute}_00_00.jpg"
     date = f"{start.year}_{start.month}_{start.day}"
     hour = start.hour
     minute = round_time(start.minute)
