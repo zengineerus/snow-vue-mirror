@@ -1,0 +1,7 @@
+h3 { color: blue; }
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1500px;
+}
