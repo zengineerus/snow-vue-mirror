@@ -8,11 +8,11 @@ def trafficHandler(event, context):
     try:
       user_location = event["queryStringParameters"]["location"]
     except:
-      user_location = urllib.parse.quote("2300 15th st, Denver, CO, 80202")
+      user_location = "80202"
 
     user_location = urllib.parse.unquote(user_location)
     keystone = KeystoneTraffic(user_location)
-    keystone.make_google_api_call()
+    keystone.get_traffic_data()
     
     try:
         content["TrafficReport"] = keystone.get_response()

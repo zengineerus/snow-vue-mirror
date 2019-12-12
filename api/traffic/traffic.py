@@ -38,8 +38,8 @@ class Traffic():
             "hours": str(hours),
             "minutes": str(minutes)
         }
-
-    def make_google_api_call(self):
+    
+    def get_traffic_data(self):
         try:
             existing_data = self.get_dynamo_data()
             if (existing_data != None and existing_data["time"] > int(time.time()) - 15 * 60):
@@ -49,10 +49,16 @@ class Traffic():
                 }
 
             else:
-                travel = self.gmaps.distance_matrix([self.user_location], [self.resort_location])
-                seconds = travel["rows"][0]["elements"][0]["duration"]["value"]
-                self.duration = self.time_in_hours_and_minutes(seconds)
-                self.set_dynamo_data(self.make_dynamo_data())
+                self.make_google_api_call()
+        except Exception as e:
+            self.duration = 'unavailable'
+
+    def make_google_api_call(self):
+        try:
+            travel = self.gmaps.distance_matrix([self.user_location], [self.resort_location])
+            seconds = travel["rows"][0]["elements"][0]["duration"]["value"]
+            self.duration = self.time_in_hours_and_minutes(seconds)
+            self.set_dynamo_data(self.make_dynamo_data())
         except Exception as e:
             self.duration = 'unavailable'
 
