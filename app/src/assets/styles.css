@@ -1,9 +1,13 @@
 h3 { color: blue; }
 
-
-.center-container {
-    
+.center{
     display: flex;
     justify-content: center;
-    max-width: 1500px;
+}
+
+.center-container {
+    background-color: red;
+    justify-content: center;
+    max-width: 500px;
+    min-width: 500px;
 }
