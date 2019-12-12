@@ -114,3 +114,8 @@ Deploy the `production` application.
 
 `https://app.zeplin.io/project/5df157f99d1b34a69f44d7b2`
 Login with Google - benchsquadproject@gmail.com, password: Wearebenchsquad
+
+### API endpoints
+
+https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/traffic?location=80202
+https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/weather
