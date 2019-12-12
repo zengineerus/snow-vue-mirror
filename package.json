@@ -9,6 +9,7 @@
     "start": "yarn workspaces run start",
     "start:app": "yarn workspace app start",
     "start:api": "yarn workspace api start",
+    "build": "yarn workspace app build",
     "test": "yarn workspaces run test",
     "test:app": "yarn workspace app test",
     "test:app:unit": "yarn workspace app unit",
