@@ -22,7 +22,7 @@ class KeystoneWebcam(Webcam):
         while start <= stop:
             date = f"{start.year}_{start.month}_{start.day}"
             hour = start.hour
-            minute = round_time(start.minute)
+            minute = self.round_time(start.minute)
             if hour < 10:
                 hour = '0' + str(hour)
             if minute < 10:

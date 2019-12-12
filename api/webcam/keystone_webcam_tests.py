@@ -43,12 +43,22 @@ class TestKeystoneWebcam(unittest.TestCase):
 
     def test_build_image_array_success(self):
         keystone_webcam = KeystoneWebcam()
-        mock = Mock()
+        mock = MagicMock()
         # mock.side_effect = ['url1',None,'url2']
+        # keystone_webcam.image_request = MagicMock(
+        #     side_effect=['url1', None, 'url2'])
+
         keystone_webcam.image_request = MagicMock(
             side_effect=['url1', None, 'url2'])
+        # keystone_webcam.build_image_array = MagicMock(
+        #     return_value=['url1', None, 'url2'])
         keystone_webcam.build_image_array()
-        keystone_webcam.image_request.assert_has_calls()
+        # mock(1)
+        # mock(2)
+        # mock(3)
+        # calls = [call(1), call(2), call(3)]
+        # keystone_webcam.image_request.assert_has_calls(calls)
+        keystone_webcam.image_request.assert_called_once_with('url1')
 
     def test_build_image_array_failure(self):
         pass
