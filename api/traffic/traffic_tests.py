@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from api.traffic.traffic import Traffic
+from traffic.traffic import Traffic
 import time
 from boto3.dynamodb.conditions import Key
 

@@ -1,6 +1,6 @@
 import urllib.request as urllib
 import re
-import api.config as config
+import config as config
 import time
 import datetime
 import json

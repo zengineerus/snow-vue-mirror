@@ -1,5 +1,5 @@
 import unittest
-from api.traffic.keystone_traffic import KeystoneTraffic
+from traffic.keystone_traffic import KeystoneTraffic
 
 class TestKeystoneTraffic(unittest.TestCase):
   def test_keystone_traffic_constructor_sets_user_and_resort_location(self):

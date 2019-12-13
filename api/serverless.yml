@@ -14,7 +14,6 @@ package:
     - README.md
     - weather/keystone_weather_test.py
     - swagger.yml
-    - config.py
     - __init__.py
 custom:
   defaultStage: dev
@@ -28,6 +27,7 @@ functions:
       - http:
           path: weather
           method: get
+          cors: true
     package:
       exclude:
         - traffic/**
@@ -38,6 +38,7 @@ functions:
       - http:
           path: traffic
           method: get
+          cors: true
     package:
       exclude:
         - weather/**
