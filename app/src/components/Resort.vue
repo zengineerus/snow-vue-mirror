@@ -1,9 +1,10 @@
 <template>
-  <div id="resort">
+  <div id='resort'>
     <h1>Keystone</h1>Last Updated: 10/10/19 7:15
     <SnowFall></SnowFall>
 
     <TravelTime></TravelTime>
+
   </div>
 </template>
 
@@ -17,11 +18,11 @@
 </style>
 
 <script>
-import SnowFall from "./SnowFall";
-import TravelTime from "./TravelTime";
+import SnowFall from './SnowFall'
+import TravelTime from './TravelTime'
 
 export default {
-  name: "Resort",
+  name: 'Resort',
   components: {
     SnowFall,
     TravelTime

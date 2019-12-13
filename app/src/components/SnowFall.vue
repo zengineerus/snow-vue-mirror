@@ -1,17 +1,15 @@
 <template>
   <div id="new-snow">
     <div>
-      <div class="left">NEW SNOW</div>
-      <div class="right">BASE SNOW</div>
+      <div class="left">Overnight SnowFall</div>
+      <div class="right">24 Hour Snow</div>
     </div>
     <div>
-      <div class="left">10"</div>
-      <div class="right">66"</div>
+      <div class="left"> {{snowData.SnowReport[0].Depth.Inches}}</div>
+      <div class="right"> {{snowData.SnowReport[1].Depth.Inches}}</div>
     </div>
   </div>
 </template>
-
-
 
 <style>
   #new-snow{
@@ -25,3 +23,22 @@
     display: inline;
   }
 </style>
+
+<script>
+import SnowVueService from '../services/snow-data';
+
+export default {
+  name: 'SnowFall',
+  data () {
+    return {
+      snowData: []
+    }
+  },
+  created () {
+    SnowVueService.snowReports().then(response => {
+      console.log('!!!!!!!!!!!!!!!', response.body);
+      this.snowData = response.body;
+    });
+  }
+};
+</script>

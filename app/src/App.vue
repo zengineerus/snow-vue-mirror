@@ -1,7 +1,7 @@
 <template>
-  <div class="center">
-    <div class="center-container">
-      <div id="app">
+  <div class='center'>
+    <div class='center-container'>
+      <div id='app'>
         <router-view />
       </div>
     </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "App"
+  name: 'App'
 };
 </script>
 
