@@ -5,7 +5,8 @@ import time
 import datetime
 import json
 import random
-from boto3 import boto3.dynamodb.conditions import Key
+import boto3
+from boto3.dynamodb.conditions import Key
 # import googlemaps
 
 # we don't have an api key yet, returning stub data for now
