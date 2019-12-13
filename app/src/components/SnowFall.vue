@@ -5,8 +5,8 @@
       <div class="right">24 Hour Snow</div>
     </div>
     <div>
-      <div class="left"> {{snowData.SnowReport[0].Depth.Inches}}</div>
-      <div class="right"> {{snowData.SnowReport[1].Depth.Inches}}</div>
+      <div class="left" v-if="snowData.SnowReport"> {{snowData.SnowReport[0].Depth.Inches}}</div>
+      <div class="right" v-if="snowData.SnowReport"> {{snowData.SnowReport[1].Depth.Inches}}</div>
     </div>
   </div>
 </template>

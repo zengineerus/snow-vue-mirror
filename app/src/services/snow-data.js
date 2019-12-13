@@ -5,5 +5,8 @@ export default {
   },
   snowReports () {
     return Vue.http.get('https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/weather');
+  },
+  travelTime () {
+    return Vue.http.get('https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/traffic?location=80202')
   }
 }
