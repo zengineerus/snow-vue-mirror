@@ -7,3 +7,5 @@ app/selenium-server.log
 app/test/e2e/reports
 selenium-debug.log
 selenium-server.log
+app/src/main/assets/www/
+app/platforms/**

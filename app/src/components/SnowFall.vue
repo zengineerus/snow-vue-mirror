@@ -5,9 +5,10 @@
       <div class="right">24 Hour Snow</div>
     </div>
     <div>
-      <div class="left"> {{snowData.SnowReport[0].Depth.Inches}}</div>
-      <div class="right"> {{snowData.SnowReport[1].Depth.Inches}}</div>
+      <div class="left">  <span >{{snowData.SnowReport[0].Depth.Inches}}</span>"</div>
+      <div class="right"> <span id="depth24">{{snowData.SnowReport[1].Depth.Inches}}</span>"</div>
     </div>
+    <Reddit></Reddit>
   </div>
 </template>
 
@@ -26,9 +27,12 @@
 
 <script>
 import SnowVueService from '../services/snow-data';
-
+import Reddit from './Reddit';
 export default {
   name: 'SnowFall',
+  components: {
+    Reddit
+  },
   data () {
     return {
       snowData: []
