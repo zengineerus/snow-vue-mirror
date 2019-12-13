@@ -1,5 +1,17 @@
+.python-image: &python-image
+  image: "python:3.8"
+  before_script:
+    - python --version
+
+.node-image: &node-image
+  image: "node"
+
+.selenium-image: &selenium-image
+  image: "registry-gitlab.asynchrony.com/proj-1678/snow-vue"
+
 stages:
   - test
+  - e2e
   # - deploy-to-dev
   # - deploy-to-prod
 
@@ -10,10 +22,32 @@ stages:
 #     - yarn install --progress=false
 #     - yarn run build
 
-#TODO: add creds to env var
-
-unit test:
+javascript unittest:
+  <<: *node-image
+  tags:
+    - snow-vue
   stage: test
   script:
-    - apt-get install -y python3
-    - python3 -m unittest "api/weather/keystone_weather_test.py"
+    - yarn install
+    - cd app
+    - yarn unit
+
+python unittest:
+  <<: *python-image
+  tags:
+    - snow-vue
+  stage: test
+  script:
+    - python3 -m unittest discover -p *_test*.py
+
+e2e:
+  <<: *selenium-image
+  tags:
+    - snow-vue
+  stage: e2e
+  script:
+    - yarn install
+    - yarn e2e
+  variables:
+    HUB_HOST: "hub"
+    HUB_PORT: 4723

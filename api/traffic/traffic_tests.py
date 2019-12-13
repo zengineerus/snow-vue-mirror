@@ -78,18 +78,17 @@ class TestTraffic(unittest.TestCase):
     
     self.assertEqual(traffic.duration, "unavailable")
 
-  def test_get_Response(self):
 
+  def test_get_response(self):
     traffic = Traffic("foo", "bar")
     traffic.duration = "10 thousand years"
-
     expected = {
-          "travel_time": "10 thousand years",
-          "start_location": "foo",
-          "destination": "bar",
-        }
-
+        "travel_time": "10 thousand years",
+        "start_location": "foo",
+        "destination": "bar",
+    }
     actual = traffic.get_response()
+
 
   def test_make_dynamo_data(self):
     traffic = Traffic("foo", "bar")
