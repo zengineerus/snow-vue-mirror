@@ -1,5 +1,15 @@
-<template v-if='travelTime !== undefined'>
-  <div id="travel-time">
+<template>
+<ion-card name="ion_card">
+<ion-card-header name="ion_header">
+  <ion-card-title name="ion_title">Travel Time</ion-card-title>
+</ion-card-header>
+<ion-card-content name="ion_content">
+  <ion-item name="ion_item">
+    <ion-label name="ion_label" v-if="travelTime.TrafficReport">{{travelTime.TrafficReport.destination}}</ion-label>
+  </ion-item>
+</ion-card-content>
+</ion-card>
+  <!-- <div id="travel-time">
     <div>
       <div>Travel Time</div>
     </div>
@@ -13,7 +23,7 @@
         <div v-if="travelTime.TrafficReport">From: {{travelTime.TrafficReport.start_location}}</div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style>

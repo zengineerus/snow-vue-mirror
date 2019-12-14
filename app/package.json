@@ -17,7 +17,6 @@
     "docker": "docker run -p 8080:8080 snowvue"
   },
   "dependencies": {
-    "@ionic/vue": "^0.0.4",
     "cordova-android": "8.1.0",
     "cordova-ios": "5.1.1",
     "node-sass": "^4.13.0",
