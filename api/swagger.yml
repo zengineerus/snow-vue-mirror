@@ -1,45 +1,46 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: "Ski Resort Info API"
-  version: "1.0.0"
-  title: "Resorts"
-host: "aws.apigateway.placeholder"
-basePath: "/"
+  description: 'API for Snowvue App'
+  version: 1.0.0
+  title: 'Python API'
+host: 'aws.apigateway.placeholder'
+basePath: '/'
 tags:
-- name: "keystone"
-  description: "Everything about keystone"
+  - name: 'keystone'
+    description: 'Traffic and weather about Keystone'
 schemes:
-- "https"
+  - 'https'
 paths:
+  #https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-validation-sample-api-swagger.html
   /keystone:
     get:
       tags:
-      - "keystone"
-      summary: "Get weather and travel info for keystone"
-      operationId: "getKeystone"
+        - 'keystone'
+      summary: 'Get weather and travel info for keystone'
+      operationId: 'getKeystone'
       consumes:
-      - "path"
+        - 'path'
       produces:
-      - "application/json"
+        - 'application/json'
       parameters:
-      - in: "query"
-        name: "userLocation"
-        description: "user location to be passed to google location API"
-        required: false
-        type: string
+        - in: 'query'
+          name: 'userLocation'
+          description: 'user location to be passed to google location API'
+          required: false
+          type: string
       responses:
         200:
           schema:
-            $ref: "#/definitions/KeystoneReport"
-          description: "Available reports for keystone"
+            $ref: '#/definitions/KeystoneReport'
+          description: 'Available reports for keystone'
         503:
-          description: "Unavailable"
+          description: 'Unavailable'
 definitions:
   KeystoneReport:
-    type: "object"
+    type: 'object'
     properties:
       SnowReport:
-        type: "string"
+        type: 'string'
       TravelTime:
-        type: "string"
-        format: "hh:mm:ss"
+        type: 'string'
+        format: 'hh:mm:ss'
