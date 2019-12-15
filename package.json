@@ -21,6 +21,9 @@
     "docker": "yarn workspace app docker"
   },
   "dependencies": {
+    "@ionic/core": "^4.11.7",
+    "@ionic/vue": "^0.0.4",
+    "ionicons": "4.5.9-1",
     "vue": "^2.6.10"
   }
 }

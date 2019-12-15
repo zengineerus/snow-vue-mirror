@@ -1,5 +1,31 @@
 <template>
-  <div id="new-snow">
+<ion-card id="new-snow">
+  <ion-card-header>
+    <ion-card-title>SnowFall</ion-card-title>
+    <ion-card-subtitle>Overnight and 24 hour</ion-card-subtitle>
+  </ion-card-header>
+<ion-card-content>
+  <ion-grid v-if="snowData.SnowReport">
+    <ion-row>
+      <ion-col>
+        <ion-label>Overnight SnowFall</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label>24 Hour Snow</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>{{snowData.SnowReport[0].Depth.Inches}} inches</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label>{{snowData.SnowReport[1].Depth.Inches}} inches</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card-content>
+</ion-card>
+  <!-- <div id="new-snow">
     <div>
       <div class="left">Overnight SnowFall</div>
       <div class="right">24 Hour Snow</div>
@@ -8,7 +34,7 @@
       <div class="left" v-if="snowData.SnowReport"> {{snowData.SnowReport[0].Depth.Inches}}</div>
       <div class="right" v-if="snowData.SnowReport"> {{snowData.SnowReport[1].Depth.Inches}}</div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style>

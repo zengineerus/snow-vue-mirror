@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import './assets/styles.css'
 import VueResource from 'vue-resource'
+import Ionic from '@ionic/vue'
 // import '../cordova.js'
 
 Vue.config.productionTip = false
@@ -20,6 +21,7 @@ Vue.config.ignoredElements = [
   'ion-item'
 ];
 
+Vue.use(Ionic)
 Vue.use(VueResource);
 
 /* eslint-disable no-new */
