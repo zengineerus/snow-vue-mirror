@@ -23,6 +23,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-label v-else>{{snowData.message}}</ion-label>
 </ion-card-content>
 </ion-card>
   <!-- <div id="new-snow">
@@ -63,7 +64,10 @@ export default {
   created () {
     SnowVueService.snowReports().then(response => {
       console.log('!!!!!!!!!!!!!!!', response.body);
-      this.snowData = response.body;
+      this.snowData = { 'message': 'Data is not available.' };
+    }, response => {
+      console.log('###############', response.body);
+      this.snowData = { 'message': 'Data is not available.' }
     });
   }
 };
