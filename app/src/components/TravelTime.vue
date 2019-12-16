@@ -17,6 +17,7 @@
         <ion-label>{{travelTime.TrafficReport.travel_time.minutes}} minutes</ion-label>
       </ion-item>
     </ion-list>
+    <ion-label v-else>{{travelTime.message}}</ion-label>
   </ion-card-content>
 </ion-card>
   <!-- <div id="travel-time">
@@ -63,7 +64,10 @@ export default {
     SnowVueService.travelTime().then(response => {
       console.log('!!!!!!!!!!!!!!!', response.body);
       this.travelTime = response.body;
-    });
+    }, response => {
+      console.log('##############', response.body)
+      this.travelTime = { 'message': 'Data is not available.' }
+    })
   }
 }
 </script>
