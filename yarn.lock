@@ -7101,7 +7101,7 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-object-hash@^1.1.4:
+object-hash@^1.1.4, object-hash@^1.1.7:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-1.3.1.tgz#fde452098a951cb145f039bb7d455449ddc126df"
   integrity sha512-OSuu/pU4ENM9kmREg0BdNrUDIl1heYa4mBZacJc+vVWz4GtAwu7jO8s4AIt2aGRUTqxykpWzI3Oqnsm13tTMDA==
@@ -9228,6 +9228,13 @@ serve-static@1.14.1:
     escape-html "~1.0.3"
     parseurl "~1.3.3"
     send "0.17.1"
+
+serverless-aws-documentation@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/serverless-aws-documentation/-/serverless-aws-documentation-1.1.0.tgz#e41d08de84d651f3db84348d926db369292731ff"
+  integrity sha512-b2iM1eZIWxQjAa6RNnARq+iXgiffbtSmKnZUh7l8KOkaD/BapqfOkKKi6MGxp3KxQFkW31sVsAiqJ0NQSSyXOw==
+  dependencies:
+    object-hash "^1.1.7"
 
 set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"

@@ -9,5 +9,8 @@
     "test": "echo 'implement test api'",
     "build": "echo 'implement build api'",
     "deploy": "echo 'implement deploy api'"
+  },
+  "devDependencies": {
+    "serverless-aws-documentation": "^1.1.0"
   }
 }
