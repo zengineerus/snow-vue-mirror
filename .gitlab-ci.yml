@@ -39,7 +39,6 @@ python unittest:
   stage: test
   script:
     - cd api
-    - pip3 install
     - python3 -m unittest discover -p *_test*.py
 
 e2e:
