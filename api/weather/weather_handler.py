@@ -1,5 +1,5 @@
 import json
-from api.weather.keystone_weather import KeystoneWeather
+from weather.keystone_weather import KeystoneWeather
 
 
 def weatherHandler(event, context):
@@ -14,5 +14,9 @@ def weatherHandler(event, context):
 
     return {
         "statusCode": status,
-        "body": json.dumps(content)
+        "body": json.dumps(content),
+        "headers": {
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Credentials": True,
+        }
     }

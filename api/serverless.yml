@@ -1,3 +1,6 @@
+plugins:
+  - serverless-aws-documentation
+  # - serverless-export-swagger
 service: wwt-snow-vue-python
 provider:
   name: aws
@@ -13,32 +16,151 @@ package:
     - package.json
     - README.md
     - weather/keystone_weather_test.py
-    - swagger.yml
     - config.py
     - __init__.py
+    - swagger/**
 custom:
   defaultStage: dev
   profiles:
     dev: dev
     prod: prod
+    test: dev
+  # swaggerDestinations:
+  #   s3BucketName: 'snowvue-docs'
+  #   s3KeyName: 'swagger/SwaggerDocumentation.yml'
+  #   acl: 'private'
+  documentation:
+    models:
+      - name: 'ErrorResponse'
+        description: 'This is an error'
+        contentType: 'application/json'
+        schema:
+          type: 'object'
+          properties:
+            status_code:
+              type: 'integer'
+            message:
+              type: 'string'
+      - name: 'TrafficResponse'
+        description: 'Model for the traffic response'
+        contentType: 'application/json'
+        schema:
+          type: 'object'
+          properties:
+            TrafficReport:
+              type: 'object'
+              properties:
+                travel_time:
+                  type: 'object'
+                  properties:
+                    hour:
+                      type: 'string'
+                    minute:
+                      type: 'string'
+                start_location:
+                  type: 'string'
+                destination:
+                  type: 'string'
+      - name: 'TrafficErrorResponse'
+        description: 'Model for the traffic error response'
+        contentType: 'application/json'
+        schema:
+          type: 'object'
+          properties:
+            status_code:
+              type: 'integer'
+            message:
+              type: 'string'
+      - name: 'WeatherErrorResponse'
+        description: 'Error for weather data'
+        contentType: 'application/json'
+        schema:
+          type: 'object'
+          properties:
+            status_code:
+              type: 'integer'
+            message:
+              type: 'string'
+      - name: 'WeatherResponse'
+        description: 'Model for weather data'
+        contentType: 'application/json'
+        schema:
+          type: 'object'
+          properties:
+            inches:
+              type: 'string'
+            cm:
+              type: 'string'
+            timestamp:
+              type: 'string'
 functions:
   weather:
     handler: weather/weather_handler.weatherHandler
     events:
       - http:
           path: weather
+          cors: true
           method: get
+          documentation:
+            summary: 'Retrieve weather information'
+            description: 'Retrieve weather for particular resort'
+            methodResponses:
+              - statusCode: '200'
+                responseBody:
+                  description: 'Return current weather data with timestamp or status code and error message'
+                responseModels:
+                  'application/json': 'WeatherResponse'
+              - statusCode: '204'
+                responseBody:
+                  description: 'Successful request with incorrect data or 3rd party error'
+                responseModels:
+                  'application/json': 'WeatherErrorResponse'
+              - statusCode: '400'
+                responseModels:
+                  'application/json': 'ErrorResponse'
     package:
       exclude:
         - traffic/**
+        # - swagger/**
     role: arn:aws:iam::963760208122:role/lambda_cli_role
   traffic:
     handler: traffic/traffic_handler.trafficHandler
     events:
       - http:
-          path: traffic
           method: get
+          cors: true
+          path: traffic
+          documentation:
+            summary: 'Retrieve traffic estimate'
+            description: 'Retrieve traffic estimate from location. Defaults to zipcode 80202'
+            queryParams:
+              - name: 'zipcode'
+                description: 'Five digit US zipcode'
+              - name: 'location'
+                description: "User's five digit zipcode"
+            methodResponses:
+              - statusCode: '200'
+                responseBody:
+                  description: 'Return estimated travel duration or error status code with custom error message'
+                responseModels:
+                  'application/json': 'TrafficResponse'
+              - statusCode: '204'
+                responseBody:
+                  description: 'Successful request with incorrect data or 3rd party error'
+                responseModels:
+                  'application/json': 'TrafficErrorResponse'
+              - statusCode: '400'
+                responseModels:
+                  'application/json': 'ErrorResponse'
     package:
       exclude:
         - weather/**
+        # - swagger/**
     role: arn:aws:iam::963760208122:role/lambda_cli_role
+  # swagger:
+  #   handler: swagger.swaggerHandler
+  #   events:
+  #     - http:
+  #         method: get
+  #         cors: true
+  #         path: swagger/

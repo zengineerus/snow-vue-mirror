@@ -19,7 +19,10 @@
   "dependencies": {
     "cordova-android": "8.1.0",
     "cordova-ios": "5.1.1",
+    "node-sass": "^4.13.0",
+    "sass-loader": "7.0.0",
     "vue": "2.6.10",
+    "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",
     "wd": "^1.11.4"
   },
@@ -88,7 +91,7 @@
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
-    "webpack": "^3.6.0",
+    "webpack": "3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"

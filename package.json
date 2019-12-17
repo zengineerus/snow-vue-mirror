@@ -9,8 +9,10 @@
     "start": "yarn workspaces run start",
     "start:app": "yarn workspace app start",
     "start:api": "yarn workspace api start",
+    "build": "yarn workspace app build",
     "test": "yarn workspaces run test",
     "test:app": "yarn workspace app test",
+    "test:app:unit": "yarn workspace app unit",
     "test:api": "yarn workspace api test",
     "e2e": "yarn workspace app e2e",
     "e2e-ios": "yarn workspace app e2e --env ios",
@@ -19,6 +21,9 @@
     "docker": "yarn workspace app docker"
   },
   "dependencies": {
+    "@ionic/core": "^4.11.7",
+    "@ionic/vue": "^0.0.4",
+    "ionicons": "4.5.9-1",
     "vue": "^2.6.10"
   }
 }
