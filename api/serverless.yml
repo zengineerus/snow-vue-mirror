@@ -25,10 +25,6 @@ custom:
     dev: dev
     prod: prod
     test: dev
-  # swaggerDestinations:
-  #   s3BucketName: 'snowvue-docs'
-  #   s3KeyName: 'swagger/SwaggerDocumentation.yml'
-  #   acl: 'private'
   documentation:
     models:
       - name: 'ErrorResponse'
@@ -121,7 +117,6 @@ functions:
     package:
       exclude:
         - traffic/**
-        # - swagger/**
     role: arn:aws:iam::963760208122:role/lambda_cli_role
   traffic:
     handler: traffic/traffic_handler.trafficHandler
@@ -155,12 +150,4 @@ functions:
     package:
       exclude:
         - weather/**
-        # - swagger/**
     role: arn:aws:iam::963760208122:role/lambda_cli_role
-  # swagger:
-  #   handler: swagger.swaggerHandler
-  #   events:
-  #     - http:
-  #         method: get
-  #         cors: true
-  #         path: swagger/

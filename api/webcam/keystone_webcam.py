@@ -1,4 +1,4 @@
-from api.webcam.webcam import Webcam
+from webcam.webcam import Webcam
 import urllib.request as urllib
 from datetime import date, timedelta, datetime
 

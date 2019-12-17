@@ -1,5 +1,5 @@
 import unittest
-from api.traffic.keystone_traffic import KeystoneTraffic
+from traffic.keystone_traffic import KeystoneTraffic
 
 
 class TestKeystoneTraffic(unittest.TestCase):
