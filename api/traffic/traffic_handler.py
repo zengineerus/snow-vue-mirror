@@ -23,5 +23,9 @@ def trafficHandler(event, context):
 
     return {
         "statusCode": status,
-        "body": json.dumps(content)
+        "body": json.dumps(content),
+        "headers": {
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Credentials": True,
+        }
     }
