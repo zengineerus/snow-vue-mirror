@@ -1,0 +1,4 @@
+---
+url: 'https://snowvue-docs.s3.amazonaws.com/swagger/test_doc.json'
+dom_id: '#swagger-ui'
+validatorUrl: 'https://validator.swagger.io/validator'
