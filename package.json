@@ -10,6 +10,8 @@
     "start:app": "yarn workspace app start",
     "start:api": "yarn workspace api start",
     "build": "yarn workspace app build",
+    "build:ios":"yarn workspace app build:ios",
+    "build:android": "yarn workspace app build:android",
     "test": "yarn workspaces run test",
     "test:app": "yarn workspace app test",
     "test:app:unit": "yarn workspace app unit",
