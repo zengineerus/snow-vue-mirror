@@ -56,6 +56,6 @@ while start <= stop:
 print(len(images))
 timestamp = int(stop.timestamp())
 
-filepath = f"../../app/images/keystone_snow_stake_{timestamp}.gif"
-# images[0].save(filepath, format='GIF',
-#    append_images=images[1:], save_all=True, duration=500, loop=0)
+filepath = f"../app/images/keystone_snow_stake_{timestamp}.gif"
+images[0].save(filepath, format='GIF',
+               append_images=images[1:], save_all=True, duration=500, loop=0)
