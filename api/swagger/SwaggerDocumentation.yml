@@ -1,10 +1,10 @@
 ---
 swagger: "2.0"
 info:
-  version: "2019-12-16T21:07:07Z"
-  title: "test-wwt-snow-vue-python"
-host: "4hql04b1p2.execute-api.us-east-1.amazonaws.com"
-basePath: "/test"
+  version: "2019-12-17T18:20:09Z"
+  title: "dev-wwt-snow-vue-python"
+host: "5kn6ac4359.execute-api.us-east-1.amazonaws.com"
+basePath: "/dev"
 schemes:
 - "https"
 paths:
