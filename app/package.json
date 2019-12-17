@@ -12,6 +12,8 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
+    "build:android": "node build/build.js : android",
+    "build:ios": "node build/build.js : ios",
     "interactive": "docker run -p 8080:8080 -it snowvue /bin/bash",
     "docker:build": "docker build -t snowvue .",
     "docker": "docker run -p 8080:8080 snowvue"
