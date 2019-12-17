@@ -21,7 +21,9 @@ class TestWebcam(unittest.TestCase):
         self.assertEqual(result, test_image)
 
     def test_get_video_url_successfully(self):
-        pass
+        webcam = Webcam(test_url)
+        result = webcam.get_video_url()
+        self.assertEqual(result, test_url)
 
     def test_image_request_success(self):
         pass

@@ -14,7 +14,7 @@ class Webcam:
         self.images = images
 
     def get_video_url(self):
-        return self.video_url
+        return self.webcam_url
 
     def image_request(self, url):
         try:
