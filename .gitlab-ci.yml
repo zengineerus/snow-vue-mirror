@@ -1,13 +1,13 @@
 .python-image: &python-image
-  image: "python:3.8"
+  image: 'python:3.8'
   before_script:
     - python --version
 
 .node-image: &node-image
-  image: "node"
+  image: 'node'
 
 .selenium-image: &selenium-image
-  image: "registry-gitlab.asynchrony.com/proj-1678/snow-vue"
+  image: 'registry-gitlab.asynchrony.com/proj-1678/snow-vue'
 
 stages:
   - test
@@ -38,6 +38,7 @@ python unittest:
     - snow-vue
   stage: test
   script:
+    - cd api
     - python3 -m unittest discover -p *_test*.py
 
 e2e:
@@ -49,5 +50,5 @@ e2e:
     - yarn install
     - yarn e2e
   variables:
-    HUB_HOST: "hub"
+    HUB_HOST: 'hub'
     HUB_PORT: 4723
