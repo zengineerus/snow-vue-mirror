@@ -9,6 +9,17 @@ provider:
   profile: ${self:custom.profiles.${self:provider.stage}}
   deploymentBucket:
     name: wwt-snow-vue-deploy
+  resourcePolicy:
+    - Effect: Allow
+      Principal: '*'
+      Action: execute-api:Invoke
+      Resource:
+        - execute-api:/*/*/*
+      Condition:
+        IpAddress:
+          aws:SourceIp:
+            - '65.158.17.194'
+            - '198.200.139.89'
 package:
   individually: true
   exclude:
@@ -87,12 +98,20 @@ custom:
         schema:
           type: 'object'
           properties:
-            inches:
-              type: 'string'
-            cm:
-              type: 'string'
-            timestamp:
-              type: 'string'
+            SnowReport:
+              type: 'array'
+              items:
+                type: 'object'
+                properties:
+                  Depth:
+                    type: 'object'
+                    properties:
+                      Inches:
+                        type: 'string'
+                      Centimeters:
+                        type: 'string'
+                  Description:
+                    type: 'string'
 functions:
   weather:
     handler: weather/weather_handler.weatherHandler
