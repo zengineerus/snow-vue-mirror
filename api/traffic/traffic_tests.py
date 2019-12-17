@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from api.traffic.traffic import Traffic
+from traffic.traffic import Traffic
 
 
 class TestTraffic(unittest.TestCase):

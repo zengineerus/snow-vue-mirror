@@ -38,6 +38,7 @@ python unittest:
     - snow-vue
   stage: test
   script:
+    - cd api
     - python3 -m unittest discover -p *_test*.py
 
 e2e:
