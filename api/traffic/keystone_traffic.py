@@ -1,4 +1,4 @@
-from api.traffic.traffic import Traffic
+from traffic.traffic import Traffic
 
 
 class KeystoneTraffic(Traffic):
