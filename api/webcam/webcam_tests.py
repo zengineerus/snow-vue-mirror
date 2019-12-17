@@ -3,9 +3,10 @@ from unittest.mock import patch
 from webcam.webcam import Webcam
 
 
-class TestWebcam(unittest.TestCase):
-    test_url = "http://testing.com"
+test_url = "http://testing.com"
 
+
+class TestWebcam(unittest.TestCase):
     def test_get_image_stream_success(self):
         webcam = Webcam(test_url)
         webcam.images = []
@@ -13,7 +14,11 @@ class TestWebcam(unittest.TestCase):
         self.assertEqual(result, [])
 
     def test_set_image_stream_success(self):
-        webcam = Webcam()
+        webcam = Webcam(test_url)
+        test_image = [{"img": "test"}]
+        webcam.set_image_stream(test_image, "jpg")
+        result = webcam.images
+        self.assertEqual(result, test_image)
 
     def test_get_video_url_successfully(self):
         pass
