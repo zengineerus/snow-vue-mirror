@@ -1,4 +1,4 @@
-from api.weather.weather import Weather
+from weather.weather import Weather
 
 
 class KeystoneWeather(Weather):

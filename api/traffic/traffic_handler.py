@@ -1,5 +1,5 @@
 import json
-from api.traffic.keystone_traffic import KeystoneTraffic
+from traffic.keystone_traffic import KeystoneTraffic
 import urllib
 
 
@@ -23,5 +23,9 @@ def trafficHandler(event, context):
 
     return {
         "statusCode": status,
-        "body": json.dumps(content)
+        "body": json.dumps(content),
+        "headers": {
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Credentials": True,
+        }
     }
