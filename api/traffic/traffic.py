@@ -1,6 +1,5 @@
 import urllib.request as urllib
 import re
-import api.config as config
 import datetime
 import json
 import random

@@ -8,9 +8,10 @@
     "start": "echo 'implement start api'",
     "test": "echo 'implement test api'",
     "build": "echo 'implement build api'",
-    "deploy": "echo 'implement deploy api'"
+    "deploy": "sls deploy --stage test"
   },
   "devDependencies": {
-    "serverless-aws-documentation": "^1.1.0"
+    "serverless-aws-documentation": "^1.1.0",
+    "serverless-export-swagger": "^2.0.0"
   }
 }

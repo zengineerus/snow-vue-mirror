@@ -1,5 +1,5 @@
 import json
-from api.weather.keystone_weather import KeystoneWeather
+from weather.keystone_weather import KeystoneWeather
 
 
 def weatherHandler(event, context):
