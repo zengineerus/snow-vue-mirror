@@ -2,9 +2,7 @@
   <div id='resort'>
     <h1>Keystone</h1>Last Updated: 10/10/19 7:15
     <SnowFall></SnowFall>
-
     <TravelTime></TravelTime>
-
   </div>
 </template>
 
@@ -15,6 +13,7 @@
     margin: 0;
     margin-top:20px;
   }
+
 </style>
 
 <script>
