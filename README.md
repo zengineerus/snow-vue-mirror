@@ -119,5 +119,22 @@ Login with Google - benchsquadproject@gmail.com, password: Wearebenchsquad
 
 ### API endpoints
 
-https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/traffic?location=80202
-https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/weather
+> Currently hitting on Keystone Data
+
+- https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/traffic?location=80202
+- https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/weather
+
+## Heimdall
+
+To log into AWS, use [Heimdall](https://heimdall.asynchrony.com/Project/View?ProjectId=proj-1678)
+
+- Click the `Management Console`
+- Navigate to API Gateway
+- Navigate to Lambda
+
+## AWS Console
+
+Login to [AWS](https://console.aws.amazon.com/console/home?region=us-east-1)
+
+- Account: 963760208122
+- Federated Login: heimdall-admin/firstname.lastname

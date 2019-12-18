@@ -13,10 +13,10 @@ def weatherHandler(event, context):
         status = 503
 
     return {
+        "statusCode": status,
         "body": json.dumps(content),
         "headers": {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": False
-        },
-        "statusCode": status
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Credentials": True,
+        }
     }

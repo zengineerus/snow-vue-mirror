@@ -12,7 +12,7 @@
 stages:
   - test
   - e2e
-  # - deploy-to-dev
+  - backend-deploy-to-dev
   # - deploy-to-prod
 
 # build site:
@@ -53,3 +53,9 @@ e2e:
   variables:
     HUB_HOST: 'hub'
     HUB_PORT: 4723
+# backend deploy to dev:
+#   tags:
+#     - snow-vue
+#   stage: backend-deploy-to-dev
+#   script:
+#     - yarn workspace api deploy
