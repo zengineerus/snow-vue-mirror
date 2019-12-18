@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  version: "2019-12-17T22:46:15Z"
+  version: "2019-12-18T23:41:34Z"
   title: "dev-wwt-snow-vue-python"
 host: "5kn6ac4359.execute-api.us-east-1.amazonaws.com"
 basePath: "/dev"
@@ -30,6 +30,9 @@ paths:
           description: "200 response"
           schema:
             $ref: "#/definitions/TrafficResponse"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
         400:
           description: "400 response"
           schema:
@@ -51,6 +54,8 @@ paths:
               type: "string"
             Access-Control-Allow-Methods:
               type: "string"
+            Access-Control-Allow-Credentials:
+              type: "string"
             Access-Control-Allow-Headers:
               type: "string"
   /weather:
@@ -64,6 +69,9 @@ paths:
           description: "200 response"
           schema:
             $ref: "#/definitions/WeatherResponse"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
         400:
           description: "400 response"
           schema:
@@ -84,6 +92,8 @@ paths:
             Access-Control-Allow-Origin:
               type: "string"
             Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Credentials:
               type: "string"
             Access-Control-Allow-Headers:
               type: "string"
@@ -113,8 +123,6 @@ definitions:
                   type: "string"
                 Inches:
                   type: "string"
-      timestamp:
-        type: "string"
     description: "Model for weather data"
   TrafficResponse:
     type: "object"
