@@ -4,7 +4,6 @@
     <SnowFall></SnowFall>
 
     <TravelTime></TravelTime>
-
   </div>
 </template>
 
