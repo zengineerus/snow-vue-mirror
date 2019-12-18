@@ -16,6 +16,13 @@
         <ion-label>{{travelTime.TrafficReport.travel_time.hours}} hours</ion-label>
         <ion-label>{{travelTime.TrafficReport.travel_time.minutes}} minutes</ion-label>
       </ion-item>
+      <ion-item v-if="this.location.Location">
+        <ion-label>Latitude: {{this.location.Location.latutude}}</ion-label>
+        <ion-label>Longitude: {{this.location.Location.longitude}}</ion-label>
+      </ion-item>
+      <ion-item v-else>
+        <ion-label>Your location cannot be determined</ion-label>
+      </ion-item>
     </ion-list>
     <ion-label v-else>{{travelTime.message}}</ion-label>
   </ion-card-content>
@@ -57,7 +64,8 @@ export default {
   name: 'TravelTime',
   data () {
     return {
-      travelTime: {}
+      travelTime: {},
+      location: {}
     }
   },
   created () {
@@ -67,6 +75,10 @@ export default {
     }, response => {
       console.log('##############', response.body)
       this.travelTime = { 'message': 'Data is not available.' }
+    })
+    SnowVueService.getCurrentLocation().then(response => {
+      console.log('@@@@@@@@@@@@@', response)
+      this.location = response
     })
   }
 }
