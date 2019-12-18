@@ -1,6 +1,8 @@
 import unittest
 from unittest.mock import MagicMock, patch
 from weather.weather import Weather
+import urllib.request as urllib
+
 
 
 class TestWeather(unittest.TestCase):
@@ -34,3 +36,66 @@ class TestWeather(unittest.TestCase):
         weather.status = status_msg
         result = weather.get_status()
         self.assertEqual(result, status_msg)
+
+    def test_save_to_dynamo_successfully(self):
+        weather = Weather("fake_url")
+        weather.table.put_item = MagicMock()
+
+        expected_data = {
+            "overnight": {
+                "inches": "5",
+                "centimeters": "12.70" 
+            },
+            "twentyFourHour": {
+                "inches": "8",
+                "centimeters": "20.32"
+            },
+            "timestamp": "2019-12-18T12:00:00.000Z",
+            "resort": "Keystone"
+        }
+        
+        weather.get_data_to_save = MagicMock(return_value=expected_data)
+
+        weather.save_weather_report()
+
+        weather.table.put_item.assert_called_with(expected_data)
+
+    def test_get_data_to_save_makes_request_and_returns_formatted_data(self):
+        weather = Weather("mountainweatherreport.net")
+        fake_response = FakeResponse()
+        fake_endpoint_data = {
+            "SnowReportSections": [
+                {
+                    "Depth": {
+                        "Inches": "5",
+                        "Centimeters": "12.70"
+                    },
+                    "Description": "Overnight <br> Snowfall"
+                },
+                {
+                    "Depth": {
+                        "Inches": "8",
+                        "Centimeters": "20.32"
+                    },
+                    "Description": "24 Hour<br/>Snowfall"
+                }
+                ]
+        }
+        fake_response.read = MagicMock(return_value=fake_endpoint_data)
+        urllib.urlopen = MagicMock(return_value=fake_response)
+        urllib.Request = MagicMock(return_value="fake request")
+
+        result = weather.get_data_to_save()
+
+        urllib.Request.assert_called_with("mountainweatherreport.net")
+        urllib.urlopen.assert_called_with("fake request")
+        self.assertEqual(result, fake_endpoint_data)
+        
+
+
+
+
+
+    class FakeResponse():
+        def read():
+            pass

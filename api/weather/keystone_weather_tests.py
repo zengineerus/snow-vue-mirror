@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch, Mock
 from weather.keystone_weather import KeystoneWeather
+from datetime import datetime, timedelta
 import json
 
 
@@ -43,6 +44,45 @@ class TestKeystoneWeather(unittest.TestCase):
             keystoneWeather.set_status()
             self.assertEqual(keystoneWeather.status, {"Error": "Unavailable"})
 
+    def test_transform_api_data(self):
+        keystone_weather = KeystoneWeather()
+        fake_endpoint_data = {
+            "SnowReportSections": [
+                {
+                    "Depth": {
+                        "Inches": "5",
+                        "Centimeters": "12.70"
+                    },
+                    "Description": "Overnight <br> Snowfall"
+                },
+                {
+                    "Depth": {
+                        "Inches": "8",
+                        "Centimeters": "20.32"
+                    },
+                    "Description": "24 Hour<br/>Snowfall"
+                }
+                ]
+        }
+
+        expected_data = {
+            "overnight": {
+                "inches": "5",
+                "centimeters": "12.70" 
+            },
+            "twentyFourHour": {
+                "inches": "8",
+                "centimeters": "20.32"
+            },
+            "timestamp": datetime.utcnow().isoformat(),
+            "resort": "Keystone"
+        }
+
+        result = keystone_weather.transform_api_data(fake_endpoint_data)
+        self.assertEqual(result["overnight"], expected_data["overnight"])
+        self.assertEqual(result["twentyFourHour"], expected_data["twentyFourHour"])
+        self.assertEqual(result["resort"], expected_data["resort"])
+        self.assertAlmostEqual(datetime.fromisoformat(result["timestamp"]), datetime.fromisoformat(expected_data["timestamp"]), delta=timedelta(seconds=1))
 
 if __name__ == '__main__':
     unittest.main()
