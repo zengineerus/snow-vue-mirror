@@ -1,0 +1,32 @@
+{
+    "traffic": 
+        {
+            "TrafficReport": {
+                "travel_time": {
+                    "hours": "2",
+                    "minutes": "40"
+                },
+                "start_location": "80202",
+                "destination": "100 Dercum Square, Keystone, CO 80435"
+            }
+        },
+    "weather": 
+        {
+            "SnowReport": [
+                {
+                    "Depth": {
+                        "Inches": "2",
+                        "Centimeters": "4"
+                    },
+                    "Description": "Overnight <br> Snowfall"
+                },
+                {
+                    "Depth": {
+                        "Inches": "8",
+                        "Centimeters": "16"
+                    },
+                    "Description": "24 Hour<br/>Snowfall"
+                }
+            ]
+        }
+}

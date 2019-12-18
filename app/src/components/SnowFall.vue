@@ -58,7 +58,7 @@ export default {
   name: 'SnowFall',
   data () {
     return {
-      snowData: []
+      snowData: {}
     }
   },
   created () {

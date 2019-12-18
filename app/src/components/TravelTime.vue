@@ -1,47 +1,41 @@
 <template>
-<ion-card name="ion_card" color="secondary">
-  <ion-card-header name="ion_header">
-    <ion-card-title name="ion_title">Travel Time</ion-card-title>
-    <ion-card-subtitle>From Zip code to resort</ion-card-subtitle>
-  </ion-card-header>
-  <ion-card-content name="ion_content">
-    <ion-list v-if="travelTime.TrafficReport" >
-      <ion-item name="ion_item">
-        <ion-label name="ion_label">From: {{travelTime.TrafficReport.start_location}}</ion-label>
-      </ion-item>
-      <ion-item name="ion_item">
-        <ion-label name="ion_label">To: {{travelTime.TrafficReport.destination}}</ion-label>
-      </ion-item>
+  <ion-card name="ion_card" color="secondary">
+    <ion-card-content
+      v-if="this.location.Location || travelTime.TrafficReport"
+      name="ion_content"
+    >
+      <ion-grid v-if="travelTime.TrafficReport">
+        <ion-row>
+          <ion-col>
+            <ion-label>Travel Time</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Home Zip</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>{{travelTime.TrafficReport.travel_time.hours}} hours</ion-label>
+              <ion-label>{{travelTime.TrafficReport.travel_time.minutes}} minutes</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label>{{travelTime.TrafficReport.start_location}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card-content>
+    <ion-card-content v-else>
       <ion-item>
-        <ion-label>{{travelTime.TrafficReport.travel_time.hours}} hours</ion-label>
-        <ion-label>{{travelTime.TrafficReport.travel_time.minutes}} minutes</ion-label>
+        <ion-input name="zip" v-model="zip">Enter Zip</ion-input>
+        <ion-button v-on:click="updateLocation()">submit</ion-button>
       </ion-item>
-      <ion-item v-if="this.location.Location">
-        <ion-label>Latitude: {{this.location.Location.latutude}}</ion-label>
-        <ion-label>Longitude: {{this.location.Location.longitude}}</ion-label>
-      </ion-item>
-      <ion-item v-else>
-        <ion-label>Your location cannot be determined</ion-label>
-      </ion-item>
-    </ion-list>
-    <ion-label v-else>{{travelTime.message}}</ion-label>
-  </ion-card-content>
-</ion-card>
-  <!-- <div id="travel-time">
-    <div>
-      <div>Travel Time</div>
-    </div>
-    <div>
-      <div class="left">
-        <span v-if="travelTime.TrafficReport">{{travelTime.TrafficReport.travel_time.hours}} hours</span>
-        <span v-if="travelTime.TrafficReport">{{travelTime.TrafficReport.travel_time.minutes}} minutes</span>
-      </div>
-      <div class="right">
-        <div v-if="travelTime.TrafficReport">To: {{travelTime.TrafficReport.destination}}</div>
-        <div v-if="travelTime.TrafficReport">From: {{travelTime.TrafficReport.start_location}}</div>
-      </div>
-    </div>
-  </div> -->
+    </ion-card-content>
+  </ion-card>
 </template>
 
 <style>
@@ -58,28 +52,55 @@
 </style>
 
 <script>
-import SnowVueService from '../services/snow-data';
+import SnowVueService from "../services/snow-data";
 
 export default {
-  name: 'TravelTime',
-  data () {
+  name: "TravelTime",
+  data() {
+    message: "test";
+    //zip = 80202
     return {
       travelTime: {},
-      location: {}
-    }
+      location: {},
+      zip: 80000
+    };
   },
-  created () {
-    SnowVueService.travelTime().then(response => {
-      console.log('!!!!!!!!!!!!!!!', response.body);
-      this.travelTime = response.body;
-    }, response => {
-      console.log('##############', response.body)
-      this.travelTime = { 'message': 'Data is not available.' }
-    })
-    SnowVueService.getCurrentLocation().then(response => {
-      console.log('@@@@@@@@@@@@@', response)
-      this.location = response
-    })
+  created() {
+    SnowVueService.getCurrentLocation()
+      .then(response => {
+        console.log("@@@@@@@@@@@@@", response);
+        this.location = response;
+      }, error => {
+        console.log("can't get location")
+      })
+      .then(resp =>
+        SnowVueService.travelTime().then(
+          response => {
+            console.log("!!!!!!!!!!!!!!!", response.body);
+            this.travelTime = response.body;
+          },
+          response => {
+            console.log("##############", response.body);
+            this.travelTime = { message: "Data is not available." };
+          }
+        )
+      );
+  },
+  methods: {
+    updateLocation() {
+      SnowVueService.travelTimeZip(
+        document.querySelector("input[name=zip]").value
+      ).then(
+        response => {
+          console.log("^^^^^^^^^", response.body);
+          this.travelTime = response.body;
+        },
+        response => {
+          console.log("&&&&&&&&&&", response.body);
+          this.travelTime = { message: "Data is not available." };
+        }
+      );
+    }
   }
-}
+};
 </script>

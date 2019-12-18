@@ -1,13 +1,21 @@
 import Vue from 'vue';
+// import baseUrl from 'variables'
+
+var baseurl = 'http://localhost:3000';  //to use this run $  json-server mock-api.json
+//var baseurl = 'https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev'
+
 export default {
   getPosts () {
     return Vue.http.get('https://www.reddit.com/r/gifs/top/.json?limit=20&sort=hot');
   },
   snowReports () {
-    return Vue.http.get('https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/weather');
+    return Vue.http.get(`${baseurl}/weather`);
   },
   travelTime () {
-    return Vue.http.get('https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/traffic?location=80202')
+    return Vue.http.get(`${baseurl}/traffic?location=80203`)
+  },
+  travelTimeZip (zip) {
+    return Vue.http.get(`${baseurl}/traffic?location=${zip}`)
   },
   getCurrentLocation () {
     var promise1 = new Promise(function (resolve, reject) {
@@ -18,8 +26,7 @@ export default {
       } else {
         reject(Error('Location cannot be determined'))
       }
-    })
-
-    return promise1
+    });
+    return promise1;
   }
 }
