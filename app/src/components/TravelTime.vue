@@ -17,7 +17,7 @@
         <ion-label>{{travelTime.TrafficReport.travel_time.minutes}} minutes</ion-label>
       </ion-item>
     </ion-list>
-    <ion-label v-else>{{travelTime.message}}</ion-label>
+    <ion-label v-else id="travelTimeMessage">{{travelTime.message}}</ion-label>
   </ion-card-content>
 </ion-card>
   <!-- <div id="travel-time">

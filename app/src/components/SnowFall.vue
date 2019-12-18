@@ -4,7 +4,7 @@
     <ion-card-title>SnowFall</ion-card-title>
     <ion-card-subtitle>Overnight and 24 hour</ion-card-subtitle>
   </ion-card-header>
-<ion-card-content>
+<ion-card-content id="travelTimeMessage">
   <ion-grid v-if="snowData.SnowReport">
     <ion-row>
       <ion-col>

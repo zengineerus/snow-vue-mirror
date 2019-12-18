@@ -18,7 +18,10 @@ Vue.config.ignoredElements = [
   'ion-content',
   'ion-button',
   'ion-list',
-  'ion-item'
+  'ion-item',
+  'ion-card',
+  'ion-card-title',
+  'ion-card-subtitle'
 ];
 
 Vue.use(Ionic)
