@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock, patch
-from api.weather.weather import Weather
+from weather.weather import Weather
 
 
 class TestWeather(unittest.TestCase):

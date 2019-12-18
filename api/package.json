@@ -8,7 +8,7 @@
     "start": "echo 'implement start api'",
     "test": "echo 'implement test api'",
     "build": "echo 'implement build api'",
-    "deploy": "sls deploy --stage test"
+    "deploy": "sls deploy && sls downloadDocumentation --outputFileName=./swagger/SwaggerDocumentation.yml && aws s3 cp ./swagger/SwaggerDocumentation.yml s3://snowvue-swagger-docs/SwaggerDocumentation.yml"
   },
   "devDependencies": {
     "serverless-aws-documentation": "^1.1.0",
