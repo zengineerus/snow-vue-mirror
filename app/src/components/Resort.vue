@@ -1,6 +1,6 @@
 <template>
   <div id='resort'>
-    <h1>Keystone</h1>Last Updated: 10/10/19 7:15
+    <h1>Keystone</h1>
     <SnowFall></SnowFall>
     <TravelTime></TravelTime>
   </div>

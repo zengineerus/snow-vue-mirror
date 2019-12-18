@@ -42,16 +42,16 @@
 </style>
 
 <script>
-import SnowVueService from "../services/snow-data";
+import SnowVueService from '../services/snow-data';
 
 export default {
-  name: "SnowFall",
-  data() {
+  name: 'SnowFall',
+  data () {
     return {
       snowData: {}
     };
   },
-  created() {
+  created () {
     SnowVueService.snowReports().then(
       response => {
         SnowVueService.snowReports().then(
@@ -59,12 +59,12 @@ export default {
             this.snowData = response.body;
           },
           response => {
-            this.travelTime = { message: "Data is not available." };
+            this.travelTime = { message: 'Server is unavaible.' };
           }
         );
       },
       response => {
-        this.snowData = { message: "Data is not available." };
+        this.snowData = { message: 'Server is unavaible.' };
       }
     );
   }
