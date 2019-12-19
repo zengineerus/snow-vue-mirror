@@ -121,7 +121,6 @@ functions:
           path: weather
           cors: true
           method: get
-          cors: true
           documentation:
             summary: 'Retrieve weather information'
             description: 'Retrieve weather for particular resort'
