@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "3d3d5440-2ee4-45b8-9bb4-40735fda6bb5",
+		"name": "snowballers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Traffic",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "659bdff7-e857-44ed-ae85-d80031c5f627",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 300ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);",
+							"",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/traffic?location=80202",
+					"protocol": "https",
+					"host": [
+						"5kn6ac4359",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"traffic"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "80202"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Weather",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "67e9da75-d20d-4f27-9255-2c47bf2b286c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 300ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);",
+							"",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev/weather",
+					"protocol": "https",
+					"host": [
+						"5kn6ac4359",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"weather"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

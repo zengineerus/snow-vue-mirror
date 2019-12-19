@@ -1,7 +1,7 @@
 import Vue from 'vue';
 // import baseUrl from 'variables'
 
-//var baseurl = 'http://localhost:3000'; // to use this run $  json-server mock-api.json
+// var baseurl = 'http://localhost:3000'; // to use this run $  json-server mock-api.json
 var baseurl = 'https://5kn6ac4359.execute-api.us-east-1.amazonaws.com/dev'
 
 export default {

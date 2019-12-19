@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  version: "2019-12-17T18:20:09Z"
+  version: "2019-12-17T22:46:15Z"
   title: "dev-wwt-snow-vue-python"
 host: "5kn6ac4359.execute-api.us-east-1.amazonaws.com"
 basePath: "/dev"
@@ -99,10 +99,20 @@ definitions:
   WeatherResponse:
     type: "object"
     properties:
-      inches:
-        type: "string"
-      cm:
-        type: "string"
+      SnowReport:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            Description:
+              type: "string"
+            Depth:
+              type: "object"
+              properties:
+                Centimeters:
+                  type: "string"
+                Inches:
+                  type: "string"
       timestamp:
         type: "string"
     description: "Model for weather data"
@@ -140,3 +150,15 @@ definitions:
       message:
         type: "string"
     description: "This is an error"
+x-amazon-apigateway-policy:
+  Version: "2012-10-17"
+  Statement:
+  - Effect: "Allow"
+    Principal: "*"
+    Action: "execute-api:Invoke"
+    Resource: "arn:aws:execute-api:us-east-1:963760208122:5kn6ac4359/*/*/*"
+    Condition:
+      IpAddress:
+        aws:SourceIp:
+        - "65.158.17.194"
+        - "198.200.139.89"

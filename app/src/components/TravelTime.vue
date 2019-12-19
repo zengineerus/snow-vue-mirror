@@ -24,7 +24,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-label v-else>Server is unavaible.</ion-label>
+      <ion-label v-else>Server is unavailable.</ion-label>
 
     </ion-card-content>
     <ion-card-content v-else>
@@ -60,22 +60,12 @@ export default {
     };
   },
   created () {
-    SnowVueService.getCurrentLocation()
-      .then(response => {
-        this.location = response;
-      }, error => {
-        console.log("can't get location", error)
-      })
-      .then(resp =>
-        SnowVueService.travelTime().then(
-          response => {
-            this.travelTime = response.body;
-          },
-          response => {
-            this.travelTime = { message: 'Data is not available.' };
-          }
-        )
-      );
+    Promise.all([SnowVueService.getCurrentLocation(), 
+                 SnowVueService.travelTime()])
+            .then(([locationResponse, travelTimeResponse]) => {
+      this.location = locationResponse.body;
+      this.travelTime = travelTimeResponse.body;
+      });
   },
   methods: {
     updateLocation () {
