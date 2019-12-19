@@ -2,8 +2,12 @@ import unittest
 from unittest.mock import MagicMock, patch
 from weather.weather import Weather
 import urllib.request as urllib
+import json
 
 
+class FakeResponse():
+    def read():
+        pass
 
 class TestWeather(unittest.TestCase):
     def test_set_status_success(self):
@@ -37,7 +41,7 @@ class TestWeather(unittest.TestCase):
         result = weather.get_status()
         self.assertEqual(result, status_msg)
 
-    def test_save_to_dynamo_successfully(self):
+    def test_save_to_dynamo_success(self):
         weather = Weather("fake_url")
         weather.table.put_item = MagicMock()
 
@@ -56,32 +60,33 @@ class TestWeather(unittest.TestCase):
         
         weather.get_data_to_save = MagicMock(return_value=expected_data)
 
-        weather.save_weather_report()
+        # weather.save_weather_report()
+        weather.save_to_dynamo()
 
         weather.table.put_item.assert_called_with(expected_data)
 
     def test_get_data_to_save_makes_request_and_returns_formatted_data(self):
         weather = Weather("mountainweatherreport.net")
         fake_response = FakeResponse()
-        fake_endpoint_data = {
-            "SnowReportSections": [
-                {
-                    "Depth": {
-                        "Inches": "5",
-                        "Centimeters": "12.70"
+        mock_response_data = bytearray('''
+        {
+            "SnowReportSections": [{ 
+                "Depth": { 
+                    "Inches": "5",
+                    "Centimeters": "12.70" 
                     },
-                    "Description": "Overnight <br> Snowfall"
-                },
-                {
-                    "Depth": {
-                        "Inches": "8",
-                        "Centimeters": "20.32"
+                "Description":"Overnight <br> Snowfall"
+            }, {
+                "Depth": { 
+                    "Inches": "8",
+                    "Centimeters": "20.32" 
                     },
-                    "Description": "24 Hour<br/>Snowfall"
-                }
-                ]
-        }
-        fake_response.read = MagicMock(return_value=fake_endpoint_data)
+                "Description":"24 Hours<br/>Snowfall"
+            }]
+        }''', 'utf-8')
+
+        expected_value = json.loads(mock_response_data)
+        fake_response.read = MagicMock(return_value=mock_response_data) # fake_endpoint_data
         urllib.urlopen = MagicMock(return_value=fake_response)
         urllib.Request = MagicMock(return_value="fake request")
 
@@ -89,13 +94,5 @@ class TestWeather(unittest.TestCase):
 
         urllib.Request.assert_called_with("mountainweatherreport.net")
         urllib.urlopen.assert_called_with("fake request")
-        self.assertEqual(result, fake_endpoint_data)
+        self.assertEqual(result, expected_value)
         
-
-
-
-
-
-    class FakeResponse():
-        def read():
-            pass
