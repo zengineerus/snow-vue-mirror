@@ -106,7 +106,10 @@
       ".*\\.(vue)$": "vue-jest",
       "^.+\\.js$": "../node_modules/babel-jest"
     },
-    "preset": "@vue/cli-plugin-unit-jest/presets/default"
+    "preset": "@vue/cli-plugin-unit-jest/presets/default",
+    "setupFiles": [
+      "./unit-tests.js"
+    ]
   },
   "cordova": {
     "plugins": {

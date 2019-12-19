@@ -3,27 +3,6 @@ import TravelTime from '@/components/TravelTime';
 import Vue from 'vue';
 import { travelTime } from '@/services/snow-data';
 
-Vue.config.ignoredElements = [
-    'ion-app',
-    'ion-header',
-    'ion-navbar',
-    'ion-title',
-    'ion-content',
-    'ion-button',
-    'ion-list',
-    'ion-input',
-    'ion-item',
-    'ion-card',
-    'ion-card-content',
-    'ion-card-header',
-    'ion-card-title',
-    'ion-card-subtitle',
-    'ion-col',
-    'ion-grid',
-    'ion-row',
-    'ion-label'    
-  ];
-
 jest.mock('@/services/snow-data', () => ({ 
     travelTime: jest.fn(),
     getCurrentLocation: () => Promise.resolve({
