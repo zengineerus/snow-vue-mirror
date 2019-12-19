@@ -33,9 +33,6 @@ class Weather:
         # store status in dynamoDB
         print(self.status)
 
-    def save_weather_report(self):
-        pass
-
     def get_data_to_save(self):
         request = urllib.Request(self.status_url)
         response = urllib.urlopen(request)

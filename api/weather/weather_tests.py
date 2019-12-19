@@ -60,7 +60,6 @@ class TestWeather(unittest.TestCase):
         
         weather.get_data_to_save = MagicMock(return_value=expected_data)
 
-        # weather.save_weather_report()
         weather.save_to_dynamo()
 
         weather.table.put_item.assert_called_with(expected_data)
@@ -86,7 +85,7 @@ class TestWeather(unittest.TestCase):
         }''', 'utf-8')
 
         expected_value = json.loads(mock_response_data)
-        fake_response.read = MagicMock(return_value=mock_response_data) # fake_endpoint_data
+        fake_response.read = MagicMock(return_value=mock_response_data)
         urllib.urlopen = MagicMock(return_value=fake_response)
         urllib.Request = MagicMock(return_value="fake request")
 
