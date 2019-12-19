@@ -60,11 +60,11 @@ export default {
     };
   },
   created () {
-    Promise.all([SnowVueService.getCurrentLocation(), 
-                 SnowVueService.travelTime()])
-            .then(([locationResponse, travelTimeResponse]) => {
-      this.location = locationResponse.body;
-      this.travelTime = travelTimeResponse.body;
+    Promise.all([SnowVueService.getCurrentLocation(),
+      SnowVueService.travelTime()])
+      .then(([locationResponse, travelTimeResponse]) => {
+        this.location = locationResponse.body;
+        this.travelTime = travelTimeResponse.body;
       });
   },
   methods: {
