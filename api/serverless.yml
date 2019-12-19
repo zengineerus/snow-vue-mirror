@@ -27,6 +27,7 @@ package:
     - package.json
     - README.md
     - weather/keystone_weather_test.py
+    - swagger.yml
     - config.py
     - __init__.py
     - swagger/**

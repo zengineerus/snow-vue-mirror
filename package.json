@@ -10,7 +10,7 @@
     "start:app": "yarn workspace app start",
     "start:api": "yarn workspace api start",
     "build": "yarn workspace app build",
-    "build:ios":"yarn workspace app build:ios",
+    "build:ios": "yarn workspace app build:ios",
     "build:android": "yarn workspace app build:android",
     "test": "yarn workspaces run test",
     "test:app": "yarn workspace app test",
@@ -26,6 +26,7 @@
     "@ionic/core": "^4.11.7",
     "@ionic/vue": "^0.0.4",
     "ionicons": "4.5.9-1",
+    "newman": "^4.5.7",
     "vue": "^2.6.10"
   }
 }
