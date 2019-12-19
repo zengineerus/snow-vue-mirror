@@ -1,6 +1,5 @@
 import urllib.request as urllib
 import re
-import config as config
 import time
 import datetime
 import json
