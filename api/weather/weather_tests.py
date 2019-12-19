@@ -3,6 +3,7 @@ from unittest.mock import MagicMock, patch
 from weather.weather import Weather
 import urllib.request as urllib
 import json
+from boto3.dynamodb.conditions import Key
 
 
 class FakeResponse():
@@ -60,8 +61,9 @@ class TestWeather(unittest.TestCase):
         
         weather.get_data_to_save = MagicMock(return_value=expected_data)
 
-        weather.save_to_dynamo()
+        weather.save_to_dynamo(expected_data)
 
+        weather.get_data_to_save.assert_not_called()
         weather.table.put_item.assert_called_with(expected_data)
 
     def test_get_data_to_save_makes_request_and_returns_formatted_data(self):
@@ -95,3 +97,42 @@ class TestWeather(unittest.TestCase):
         urllib.urlopen.assert_called_with("fake request")
         self.assertEqual(result, expected_value)
         
+    def test_save_weather_report_success(self):
+        weather = Weather("mountainweatherreport.net")
+        weather.get_data_to_save = MagicMock(return_value="Woohoo")
+        weather.transform_api_data = MagicMock(return_value="Woohoo2")
+        weather.save_to_dynamo = MagicMock()
+
+        weather.save_weather_report()
+
+        weather.get_data_to_save.assert_called()
+        weather.transform_api_data.assert_called_with("Woohoo")
+        weather.save_to_dynamo.assert_called_with("Woohoo2")
+
+    def test_get_weather_data_calls_into_dynamo(self):
+        weather = Weather("something")
+        weather.resort_name = "test"
+
+        mock_data = {
+            "Items": [{
+                "snow": "a bunch",
+                "timestamp": "2019-12-18T00:00:00.000Z",
+                "resort": "test"
+            }]
+        }
+
+        weather.table.query = MagicMock(return_value=mock_data)
+
+        actual_data = weather.get_weather_data()
+
+        weather.table.query.assert_called_with(
+            KeyConditionExpression=Key("resort").eq("test"),
+            ScanIndexForward=False,
+            Limit=1
+            )
+        self.assertEqual(actual_data, mock_data["Items"][0])
+
+    def test_get_weather_data_from_dynamo_has_no_data(self):
+        weather = Weather("whatever")
+        weather.resort_name = "tea"
+        weather.table.query = MagicMock(return_value=None)

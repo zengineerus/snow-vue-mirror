@@ -1,9 +1,9 @@
 import json
 import datetime
 import urllib.request as urllib
-import config as config
 import boto3
 from boto3.dynamodb.conditions import Key
+from abc import abstractmethod
 
 class Weather:
     def __init__(self, status_url):
@@ -33,12 +33,30 @@ class Weather:
         # store status in dynamoDB
         print(self.status)
 
+    def get_weather_data(self):
+        #get data from dynamo using self.resort_name
+        #returning the most recently saved data
+        return self.table.query(
+            KeyConditionExpression=Key("resort").eq(self.resort_name),
+            ScanIndexForward=False,
+            Limit=1
+        )["Items"][0]
+
     def get_data_to_save(self):
         request = urllib.Request(self.status_url)
         response = urllib.urlopen(request)
         response_data = response.read()
         return json.loads(response_data)
     
-    def save_to_dynamo(self):
-        resort_weather_data = self.get_data_to_save()
-        self.table.put_item(resort_weather_data)
+    def save_to_dynamo(self, data):
+        self.table.put_item(data)
+
+    @abstractmethod
+    def transform_api_data(self, data):
+        pass
+
+    def save_weather_report(self):
+        data_to_save = self.get_data_to_save()
+        transformed_data = self.transform_api_data(data_to_save)
+        self.save_to_dynamo(transformed_data)
+        
