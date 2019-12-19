@@ -136,3 +136,15 @@ class TestWeather(unittest.TestCase):
         weather = Weather("whatever")
         weather.resort_name = "tea"
         weather.table.query = MagicMock(return_value=None)
+
+        dynamo_result = weather.get_weather_data()
+        self.assertEqual(dynamo_result, None)
+
+    # Left off attempting this test
+    def test_get_weather_data_from_dynamo_fails(self):
+        weather = Weather("whatever")
+        weather.resort_name = "tea"
+        weather.table.query = MagicMock(side_effect=Exception("Something went wrong"))
+
+        dynamo_result = weather.get_weather_data()
+        self.assertEqual(dynamo_result, "Something went wrong")

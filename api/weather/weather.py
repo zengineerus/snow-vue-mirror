@@ -36,11 +36,19 @@ class Weather:
     def get_weather_data(self):
         #get data from dynamo using self.resort_name
         #returning the most recently saved data
-        return self.table.query(
+        dynamo_report = self.table.query(
             KeyConditionExpression=Key("resort").eq(self.resort_name),
             ScanIndexForward=False,
             Limit=1
-        )["Items"][0]
+        )
+        snow_data = None
+        # ["Items"][0]
+        try:    
+            snow_data = dynamo_report["Items"][0]
+        except Exception as e:
+            snow_data = None
+        
+        return snow_data
 
     def get_data_to_save(self):
         request = urllib.Request(self.status_url)
