@@ -32,7 +32,7 @@ class KeystoneWeather(Weather):
             if "24 Hour" in item["Description"]:
                 twentyFourHour = item["Depth"]
         return {
-            "error": None
+            "error": None,
             "overnight": {
                 "inches": overnight["Inches"],
                 "centimeters": overnight["Centimeters"]

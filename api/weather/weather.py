@@ -46,9 +46,9 @@ class Weather:
             )
         except Exception as DynamoDBError:
             snow_data["error"] = "DynamoDBError"
+            return snow_data
 
-
-        try:    
+        try:
             snow_data = dynamo_report["Items"][0]
         except Exception as NoWeatherDataFound:
             snow_data["error"] = "NoWeatherDataFound"

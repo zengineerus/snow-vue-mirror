@@ -138,15 +138,13 @@ class TestWeather(unittest.TestCase):
         weather.table.query = MagicMock(return_value={"Items": []})
 
         dynamo_result = weather.get_weather_data()
-        print('no data', dynamo_result)
         self.assertEqual(dynamo_result, {"error": "NoWeatherDataFound"})
 
 
     def test_get_weather_data_from_dynamo_fails(self):
         weather = Weather("whatever")
         weather.resort_name = "tea"
-        weather.table.query = MagicMock(side_effect=Exception("Dynamo Error"))
+        weather.table.query = MagicMock(side_effect=Exception("DynamoDBError"))
 
         dynamo_result = weather.get_weather_data()
-        print(dynamo_result)
         self.assertEqual(dynamo_result, {"error": "DynamoDBError"})
