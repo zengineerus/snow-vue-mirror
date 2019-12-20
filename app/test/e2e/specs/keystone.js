@@ -16,10 +16,27 @@ module.exports = {
 
     browser
       .url(devServer)
-      .waitForElementVisible("body")
+     // .waitForElementVisible("body")
       .assert.titleContains("app")
       .assert.elementPresent("h1#resortId")
       .assert.containsText("h1#resortId", "KEYSTONE")
+      // .assert.containsText("body",`KEYSTONE
+      // Overnight SnowFall
+      // 24 Hour Snow
+      // 2 inches
+      // 8 inches
+      // Enter Zip
+      // SUBMIT`)
+      .getText("body", function(result) {
+          console.log("value is here", result.value);
+        })
       .end();
+
+      // browser
+      // .url(devServer)
+      // .waitForElementVisible("body")
+      // .getText("body", function(result) {
+      //   console.log("value is here", result.value);
+      // }).end();
   }
 };
