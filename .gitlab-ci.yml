@@ -26,7 +26,7 @@ stages:
 javascript unittest:
   <<: *node-image
   tags:
-    - snow-vue
+    - dind
   stage: test
   script:
     - yarn install
@@ -36,7 +36,7 @@ javascript unittest:
 python unittest:
   <<: *python-image
   tags:
-    - snow-vue
+    - dind
   stage: test
   script:
     - cd api
@@ -46,7 +46,7 @@ python unittest:
 e2e:
   <<: *selenium-image
   tags:
-    - snow-vue
+    - dind
   stage: e2e
   script:
     - yarn install
@@ -56,7 +56,7 @@ e2e:
     HUB_PORT: 4723
 # backend deploy to dev:
 #   tags:
-#     - snow-vue
+#     - dind
 #   stage: backend-deploy-to-dev
 #   script:
 #     - yarn workspace api deploy
