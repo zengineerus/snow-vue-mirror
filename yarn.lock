@@ -301,6 +301,13 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@ionic-native/geolocation@^5.18.0":
+  version "5.18.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/geolocation/-/geolocation-5.18.0.tgz#9b22181cc5302c8a2c3c338938ba4e7899259600"
+  integrity sha512-pLoyJfCSZrvTqILNoOUfd/okXLgUnz1Pc/4YL+v7p+euivhYfGXVgEtud3hMboggumlcIkiLMsyVOyWMrsgVSQ==
+  dependencies:
+    "@types/cordova" latest
+
 "@ionic/core@^4.0.0", "@ionic/core@^4.11.7":
   version "4.11.7"
   resolved "https://registry.yarnpkg.com/@ionic/core/-/core-4.11.7.tgz#8241c462a2917367e07a30fe66ce9a4be67bf60a"
@@ -540,6 +547,11 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
+
+"@types/cordova@latest":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@types/cordova/-/cordova-0.0.34.tgz#ea7addf74ecec3d7629827a0c39e2c9addc73d04"
+  integrity sha1-6nrd907Ow9dimCegw54smt3HPQQ=
 
 "@types/events@*":
   version "3.0.0"
