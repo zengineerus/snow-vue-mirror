@@ -64,7 +64,7 @@ export default {
   created () {
     SnowVueService.snowReports().then(response => {
       console.log('!!!!!!!!!!!!!!!', response.body);
-      this.snowData = { 'message': 'Data is not available.' };
+      this.snowData = response.body;
     }, response => {
       console.log('###############', response.body);
       this.snowData = { 'message': 'Data is not available.' }
