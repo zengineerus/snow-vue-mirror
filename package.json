@@ -21,7 +21,8 @@
     "docker:build": "yarn workspace app docker:build",
     "interactive": "yarn workspace app interactive",
     "docker": "yarn workspace app docker",
-    "lint": "yarn workspace app lint --fix"
+    "lint": "yarn workspace app lint --fix",
+    "fake": "json-server app/mock-api.json"
   },
   "dependencies": {
     "@ionic/core": "^4.11.7",

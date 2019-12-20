@@ -52,9 +52,9 @@ export default {
     };
   },
   created () {
-    SnowVueService.snowReports().then(
+    SnowVueService.snowReport().then(
       response => {
-        SnowVueService.snowReports().then(
+        SnowVueService.snowReport().then(
           response => {
             this.snowData = response.body;
           },
