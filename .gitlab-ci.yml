@@ -13,6 +13,7 @@ stages:
   - test
   - e2e
   - backend-deploy-to-dev
+  - frontend-deploy-website
   # - deploy-to-prod
 
 # build site:
@@ -59,3 +60,17 @@ e2e:
 #   stage: backend-deploy-to-dev
 #   script:
 #     - yarn workspace api deploy
+
+frontend-deploy-to-dev:
+  tags:
+    - snow-vue
+  stage: frontend-deploy-website
+  only:
+    - master
+  script:
+    - yarn install
+    - yarn build
+    - cd app/www
+    - pip install awscli
+    - aws s3 rm s3://mountainweatherreport.net/ --recursive
+    - aws s3 cp ./ s3://mountainweatherreport.net/ --recursive #--exclude "*" --include "*.html"
