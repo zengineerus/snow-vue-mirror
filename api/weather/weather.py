@@ -60,7 +60,6 @@ class Weather:
         request = urllib.Request(self.status_url)
         response = urllib.urlopen(request)
         response_data = response.read()
-        # return json.loads(response_data)
         weather_data = None 
         try:
             weather_data = json.loads(response_data)

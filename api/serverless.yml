@@ -143,6 +143,12 @@ functions:
         - traffic/**
         # - swagger/**
     role: arn:aws:iam::963760208122:role/lambda_cli_role
+  poll_weather:
+    handler: weather/weather.save_weather_report
+    events:
+      - schedule:
+        rate: cron(0 0,6,7,8,9,12,6 * * *)
+        enabled: false
   traffic:
     handler: traffic/traffic_handler.trafficHandler
     events:
