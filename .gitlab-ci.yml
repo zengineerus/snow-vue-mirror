@@ -62,8 +62,9 @@ e2e:
 #     - yarn workspace api deploy
 
 frontend-deploy-to-dev:
+  <<: *node-image
   tags:
-    - snow-vue
+    - dind
   stage: frontend-deploy-website
   only:
     - master
