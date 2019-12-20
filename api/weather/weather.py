@@ -34,30 +34,47 @@ class Weather:
         print(self.status)
 
     def get_weather_data(self):
-        #get data from dynamo using self.resort_name
-        #returning the most recently saved data
-        dynamo_report = self.table.query(
-            KeyConditionExpression=Key("resort").eq(self.resort_name),
-            ScanIndexForward=False,
-            Limit=1
-        )
-        snow_data = None
-        # ["Items"][0]
+        snow_data = {
+            "error": None   
+        }
+
+        try:
+            dynamo_report = self.table.query(
+                KeyConditionExpression=Key("resort").eq(self.resort_name),
+                ScanIndexForward=False,
+                Limit=1
+            )
+        except Exception as DynamoDBError:
+            snow_data["error"] = "DynamoDBError"
+
+
         try:    
             snow_data = dynamo_report["Items"][0]
-        except Exception as e:
-            snow_data = None
+        except Exception as NoWeatherDataFound:
+            snow_data["error"] = "NoWeatherDataFound"
         
         return snow_data
+
 
     def get_data_to_save(self):
         request = urllib.Request(self.status_url)
         response = urllib.urlopen(request)
         response_data = response.read()
-        return json.loads(response_data)
+        # return json.loads(response_data)
+        weather_data = None 
+        try:
+            weather_data = json.loads(response_data)
+        except Exception as e:
+            weather_data = {
+                "error": "ThirdPartyError"
+            }
+        return weather_data
     
     def save_to_dynamo(self, data):
-        self.table.put_item(data)
+        try:
+            self.table.put_item(data)
+        except Exception as e:
+            raise
 
     @abstractmethod
     def transform_api_data(self, data):

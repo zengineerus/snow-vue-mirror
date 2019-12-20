@@ -23,6 +23,7 @@ class KeystoneWeather(Weather):
     #     return self.get_snow_report_sections()
 
     def transform_api_data(self, data):
+        # error handle
         overnight = None
         twentyFourHour = None
         for item in data["SnowReportSections"]:
@@ -31,6 +32,7 @@ class KeystoneWeather(Weather):
             if "24 Hour" in item["Description"]:
                 twentyFourHour = item["Depth"]
         return {
+            "error": None
             "overnight": {
                 "inches": overnight["Inches"],
                 "centimeters": overnight["Centimeters"]
