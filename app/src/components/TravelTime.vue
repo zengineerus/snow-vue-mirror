@@ -51,6 +51,7 @@
 </style>
 
 <script>
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 import SnowVueService from '../services/snow-data';
 
 export default {
@@ -61,6 +62,11 @@ export default {
     }
   },
   mounted () {
+    let geolocation = new Geolocation();
+    geolocation.getCurrentPosition().then(location => {
+      console.log({location});
+    });
+
     SnowVueService.travelTime().then(response => {
       this.travelTime = response.body;
     }, response => {

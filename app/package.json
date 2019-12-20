@@ -20,11 +20,14 @@
     "unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@angular/core": "^8.2.14",
+    "@ionic-native/core": "^5.18.0",
     "@ionic-native/geolocation": "^5.18.0",
     "@vue/cli-service": "^4.1.1",
     "cordova-android": "8.1.0",
     "cordova-ios": "5.1.1",
     "node-sass": "^4.13.0",
+    "rxjs": "^6.5.3",
     "sass-loader": "7.0.0",
     "vue": "2.6.10",
     "vue-resource": "^1.5.1",
