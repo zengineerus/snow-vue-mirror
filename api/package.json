@@ -6,8 +6,15 @@
   "private": true,
   "scripts": {
     "start": "echo 'implement start api'",
-    "test": "echo 'implement test api'",
+    "test": "python3 -m unittest discover -p *_test*.py",
     "build": "echo 'implement build api'",
-    "deploy": "echo 'implement deploy api'"
+    "deploy": "sls deploy && sls downloadDocumentation --outputFileName=./swagger/SwaggerDocumentation.yml && aws s3 cp ./swagger/SwaggerDocumentation.yml s3://snowvue-swagger-docs/SwaggerDocumentation.yml"
+  },
+  "devDependencies": {
+    "serverless-aws-documentation": "^1.1.0",
+    "serverless-export-swagger": "^2.0.0"
+  },
+  "dependencies": {
+    "serverless-aws-documentation": "^1.1.0"
   }
 }

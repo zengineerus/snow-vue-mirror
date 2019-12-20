@@ -1,25 +1,32 @@
 {
-    "name": "snow-vue",
-    "private": true,
-    "workspaces": [
-        "app",
-        "api"
-    ],
-    "scripts": {
-        "start": "yarn workspaces run start",
-        "start:app": "yarn workspace app start",
-        "start:api": "yarn workspace api start",
-        "test": "yarn workspaces run test",
-        "test:app": "yarn workspace app test",
-        "test:api": "yarn workspace api test",
-        "build": "yarn workspaces run build",
-        "build:app": "yarn workspace app build",
-        "build:api": "yarn workspace api build",
-        "deploy": "yarn workspaces run deploy",
-        "deploy:app": "yarn workspace app deploy",
-        "deploy:api": "yarn workspace api deploy"
-    },
-    "dependencies": {
-        "vue": "^2.6.10"
-    }
+  "name": "snow-vue",
+  "private": true,
+  "workspaces": [
+    "app",
+    "api"
+  ],
+  "scripts": {
+    "start": "yarn workspaces run start",
+    "start:app": "yarn workspace app start",
+    "start:api": "yarn workspace api start",
+    "build": "yarn workspace app build",
+    "build:ios": "yarn workspace app build:ios",
+    "build:android": "yarn workspace app build:android",
+    "test": "yarn workspaces run test",
+    "test:app": "yarn workspace app test",
+    "test:app:unit": "yarn workspace app unit",
+    "test:api": "yarn workspace api test",
+    "e2e": "yarn workspace app e2e",
+    "e2e-ios": "yarn workspace app e2e --env ios",
+    "docker:build": "yarn workspace app docker:build",
+    "interactive": "yarn workspace app interactive",
+    "docker": "yarn workspace app docker"
+  },
+  "dependencies": {
+    "@ionic/core": "^4.11.7",
+    "@ionic/vue": "^0.0.4",
+    "ionicons": "4.5.9-1",
+    "newman": "^4.5.7",
+    "vue": "^2.6.10"
+  }
 }
