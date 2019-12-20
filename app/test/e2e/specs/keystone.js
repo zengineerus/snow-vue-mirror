@@ -2,35 +2,24 @@
 // http://nightwatchjs.org/guide#usage
 
 module.exports = {
-  'default e2e tests': function (browser) {
+  "default e2e tests": function(browser) {
     // automatically uses dev Server port from /config.index.js
     // default: http://localhost:8080
     // see nightwatch.conf.js
- 
-    // const devServer = browser.globals.devServerURL;
-    // console.log("devServer is: ", devServer);
-    // browser
-    //   .url(devServer)
-    //   .element('#resortId').text.to.be('Keystone');
+    const devServer = browser.globals.devServerURL;
 
-    //   //.waitForElementVisible('h1')
-    //   // .assert.elementPresent('#resortId')
-    //   // .assert.containsText('#resortId', 'K', 'K')
-    //   // .assert.containsText('#resortId', 'Keystone')      
+    // Helpful code:  (Delete as soon as we use these in an actual test)
+    // browser.expect.element("h1#resortId").text.to.equal("KEYSTONE");
+    // browser.getText("h1#resortId", function (result) {
+    //   console.log("value is here", result.value);
+    // });
 
-    //   //.end();
-
-    // browser
-    //   .url(devServer)
-    //   //.waitForElementVisible('body')
-    //   .assert.elementPresent('#new-snow')
-    //   .end();
-
-    Given(/^I open Google's search page$/, () => {
-      return client
-        .url('http://google.com')
-        .waitForElementVisible('body', 1000);
-    });
-
+    browser
+      .url(devServer)
+      .waitForElementVisible("body")
+      .assert.titleContains("app")
+      .assert.elementPresent("h1#resortId")
+      .assert.containsText("h1#resortId", "KEYSTONE")
+      .end();
   }
 };

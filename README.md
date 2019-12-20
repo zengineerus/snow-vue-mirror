@@ -40,6 +40,15 @@ vue init webpack my-project
 Link to App dynamics dashboard:
 https://wwt.saas.appdynamics.com/controller/#/location=EUM_WEB_MAIN_DASHBOARD&timeRange=last_30_minutes.BEFORE_NOW.-1.-1.30&application=4212185
 
+#### Json Mock Server
+
+https://github.com/typicode/json-server
+Used to mock response from Api while we figure out all CORS and access issues
+yarn global add json-server
+This will allow us to run "yarn fake" that will setup a mock web server in http://localhost:3000.
+
+- services/snow-data.js has http://localhost:3000 hard-coded for now. Eventually we should make that be configurable (12/20/2019)
+
 #### API
 
 TBD
