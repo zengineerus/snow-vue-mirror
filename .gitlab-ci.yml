@@ -73,7 +73,7 @@ frontend-deploy-to-dev:
     - yarn build
     - cd app/www
     - pwd
-    - sudo yum install -y python36u python36u-libs python36u-devel python36u-pip
+    - yum install -y python36u python36u-libs python36u-devel python36u-pip
     - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
     - python get-pip.py
     - pip install awscli
