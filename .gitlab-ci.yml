@@ -61,21 +61,21 @@ e2e:
 #   script:
 #     - yarn workspace api deploy
 
-frontend-deploy-to-dev:
-  <<: *node-image
-  tags:
-    - dind
-  stage: frontend-deploy-website
-  only:
-    - master
-  script:
-    - yarn install
-    - yarn build
-    - cd app/www
-    - pwd
-    - yum install -y python36u python36u-libs python36u-devel python36u-pip
-    - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    - python get-pip.py
-    - pip install awscli
-    - aws s3 rm s3://mountainweatherreport.net/ --recursive
-    - aws s3 cp ./ s3://mountainweatherreport.net/ --recursive #--exclude "*" --include "*.html"
+# frontend-deploy-to-dev:
+#   <<: *node-image
+#   tags:
+#     - dind
+#   stage: frontend-deploy-website
+#   only:
+#     - master
+#   script:
+#     - yarn install
+#     - yarn build
+#     - cd app/www
+#     - pwd
+#     - yum install -y python36u python36u-libs python36u-devel python36u-pip
+#     - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+#     - python get-pip.py
+#     - pip install awscli
+#     - aws s3 rm s3://mountainweatherreport.net/ --recursive
+#     - aws s3 cp ./ s3://mountainweatherreport.net/ --recursive #--exclude "*" --include "*.html"
