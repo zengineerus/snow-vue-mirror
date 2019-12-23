@@ -9,11 +9,12 @@
       <ion-list v-if="travelTime.TrafficReport" >
         <ion-item name="ion_item">
           <ion-label>Zip Code:</ion-label>
-          <validation-provider rules="minmax:5,5" v-slot="{ errors }">
-            <ion-input id="inputZip" type="number" value="80202" placehloder="80202" v-validate="number"></ion-input>
-            <span>{{errors[0]}}</span>
-          </validation-provider>
-          <!-- <ion-label name="ion_label">From: {{travelTime.TrafficReport.start_location}}</ion-label> -->
+          <span :class="{'error': errors.has('zip')}">
+            <ion-input id="inputZip" name="zip" type="text" value="80202" placeholder="80202" maxlength="5" v-validate="{ required: true, regex: /^\d{5}$/}"></ion-input>
+          </span>
+        </ion-item>
+        <ion-item v-show="errors.has('zip')" class="error">
+          <ion-label>{{ errors.first('zip') }}</ion-label>
         </ion-item>
         <ion-item name="ion_item">
           <ion-label name="ion_label">To: {{travelTime.TrafficReport.destination}}</ion-label>
@@ -27,24 +28,9 @@
     </ion-card-content>
   </ion-card>
   </form>
-  <!-- <div id="travel-time">
-    <div>
-      <div>Travel Time</div>
-    </div>
-    <div>
-      <div class="left">
-        <span v-if="travelTime.TrafficReport">{{travelTime.TrafficReport.travel_time.hours}} hours</span>
-        <span v-if="travelTime.TrafficReport">{{travelTime.TrafficReport.travel_time.minutes}} minutes</span>
-      </div>
-      <div class="right">
-        <div v-if="travelTime.TrafficReport">To: {{travelTime.TrafficReport.destination}}</div>
-        <div v-if="travelTime.TrafficReport">From: {{travelTime.TrafficReport.start_location}}</div>
-      </div>
-    </div>
-  </div> -->
 </template>
 
-<style>
+<style scoped>
   #travel-time{
     background-color: rgb(112, 42, 42);
     border-bottom: 1px;
