@@ -6,7 +6,20 @@ import router from './router'
 import './assets/styles.css'
 import VueResource from 'vue-resource'
 import Ionic from '@ionic/vue'
+import {ValidationProvider, extend} from 'vee-validate'
 // import '../cordova.js'
+
+extend('required', {
+  ...required,
+  message: 'This field is required'
+});
+
+extend('minmax', {
+  validate(value, { min, max }) {
+    return value.length >= min && value.length <= max;
+  },
+  params: ['min', 'max']
+});
 
 Vue.config.productionTip = false
 
@@ -27,11 +40,13 @@ Vue.config.ignoredElements = [
 Vue.use(Ionic)
 Vue.use(VueResource);
 
+Vue.component('ValidationProvider', ValidationProvider);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: { app },
   template: '<App/>'
 })
 

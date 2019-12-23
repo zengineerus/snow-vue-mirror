@@ -1,4 +1,5 @@
 <template>
+  <form novalidate>
   <ion-card name="ion_card" color="secondary">
     <ion-card-header name="ion_header">
       <ion-card-title name="ion_title">Travel Time</ion-card-title>
@@ -7,7 +8,12 @@
     <ion-card-content name="ion_content">
       <ion-list v-if="travelTime.TrafficReport" >
         <ion-item name="ion_item">
-          <ion-label name="ion_label">From: {{travelTime.TrafficReport.start_location}}</ion-label>
+          <ion-label>Zip Code:</ion-label>
+          <validation-provider rules="minmax:5,5" v-slot="{ errors }">
+            <ion-input id="inputZip" type="number" value="80202" placehloder="80202" v-validate="number"></ion-input>
+            <span>{{errors[0]}}</span>
+          </validation-provider>
+          <!-- <ion-label name="ion_label">From: {{travelTime.TrafficReport.start_location}}</ion-label> -->
         </ion-item>
         <ion-item name="ion_item">
           <ion-label name="ion_label">To: {{travelTime.TrafficReport.destination}}</ion-label>
@@ -20,6 +26,7 @@
       <ion-label v-else id="travelTimeMessage">{{travelTime.message}}</ion-label>
     </ion-card-content>
   </ion-card>
+  </form>
   <!-- <div id="travel-time">
     <div>
       <div>Travel Time</div>
