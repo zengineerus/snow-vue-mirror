@@ -52,7 +52,7 @@ export default {
     };
   },
   created () {
-    SnowVueService.snowReports().then(response => {
+    SnowVueService.snowReport().then(response => {
       this.snowData = response.body;
     }, response => {
       this.snowData = { 'message': 'Data is not available.' }

@@ -46,7 +46,7 @@ describe('SnowFall.vue', () => {
         
         await Vue.nextTick();
 
-        expect(wrapper.text()).toContain('Server is unavaible.');
+        expect(wrapper.text()).toContain('Data is not available.');
     });
 
 
