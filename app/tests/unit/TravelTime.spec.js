@@ -32,6 +32,7 @@ describe('TravelTime.vue', () => {
         const wrapper = mount(TravelTime);
         expect(wrapper.isVueInstance()).toBeTruthy();
         await Vue.nextTick();
+        await Vue.nextTick();
 
         expect(wrapper.text()).toContain('1 hours 13 minutes');
     })
@@ -45,6 +46,8 @@ describe('TravelTime.vue', () => {
         const wrapper = mount(TravelTime);
         expect(wrapper.isVueInstance()).toBeTruthy();
         await Vue.nextTick();
+        await Vue.nextTick();
+
         expect(wrapper.text()).toContain('Server is unavailable.');
     })
 })
