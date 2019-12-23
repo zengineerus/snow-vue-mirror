@@ -16,10 +16,10 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-label>{{snowData.SnowReport[0].Depth.Inches}} inches</ion-label>
+            <ion-label id="overnight">{{snowData.SnowReport[0].Depth.Inches}} inches</ion-label>
           </ion-col>
           <ion-col>
-            <ion-label>{{snowData.SnowReport[1].Depth.Inches}} inches</ion-label>
+            <ion-label id="day">{{snowData.SnowReport[1].Depth.Inches}} inches</ion-label>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -29,16 +29,16 @@
 </template>
 
 <style>
-  #new-snow{
-    background-color: #222222b0;
-    border-bottom: 1px;
-  }
-  #new-snow .left{
-    display: inline;
-  }
-   #new-snow .right{
-    display: inline;
-  }
+#new-snow {
+  background-color: #222222b0;
+  border-bottom: 1px;
+}
+#new-snow .left {
+  display: inline;
+}
+#new-snow .right {
+  display: inline;
+}
 </style>
 
 <script>
@@ -54,17 +54,10 @@ export default {
   created () {
     SnowVueService.snowReport().then(
       response => {
-        SnowVueService.snowReport().then(
-          response => {
-            this.snowData = response.body;
-          },
-          response => {
-            this.travelTime = { message: 'Server is unavaible.' };
-          }
-        );
+        this.snowData = response.body;
       },
       response => {
-        this.snowData = { message: 'Server is unavaible.' };
+        this.travelTime = { message: 'Server is unavaible.' };
       }
     );
   }

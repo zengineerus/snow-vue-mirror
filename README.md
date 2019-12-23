@@ -15,8 +15,8 @@ Follow the links below to install software needed for this project.
 #### Project Wide
 
 - [Yarn](https://yarnpkg.com/en/docs/install)
-- `npm install -g appium`
-- `npm install -g appium-doctor`
+- `yarn global add appium`
+- `yarn global add appium-doctor`
 
 #### iOS Configuration
 

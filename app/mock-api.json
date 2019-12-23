@@ -15,7 +15,7 @@
             "SnowReport": [
                 {
                     "Depth": {
-                        "Inches": "2",
+                        "Inches": "3",
                         "Centimeters": "4"
                     },
                     "Description": "Overnight <br> Snowfall"
