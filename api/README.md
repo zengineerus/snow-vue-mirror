@@ -204,6 +204,10 @@ CPD - Calls per day
 google travel time api
 https://developers.google.com/maps/documentation/distance-matrix/intro
 
+**Open Cage Data**
+username: sign in with google: benchsquad
+API KEY: 8cb314ac35194d85a7838e0d494a5743
+
 TODO:
 
 - output validation from external API's

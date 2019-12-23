@@ -52,14 +52,11 @@ export default {
     };
   },
   created () {
-    SnowVueService.snowReport().then(
-      response => {
-        this.snowData = response.body;
-      },
-      response => {
-        this.travelTime = { message: 'Server is unavaible.' };
-      }
-    );
+    SnowVueService.snowReports().then(response => {
+      this.snowData = response.body;
+    }, response => {
+      this.snowData = { 'message': 'Data is not available.' }
+    });
   }
 };
 </script>

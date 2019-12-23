@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "echo 'implement start api'",
-    "test": "echo 'implement test api'",
+    "test": "python3 -m unittest discover -p *_test*.py",
     "build": "echo 'implement build api'",
     "deploy": "sls deploy && sls downloadDocumentation --outputFileName=./swagger/SwaggerDocumentation.yml && aws s3 cp ./swagger/SwaggerDocumentation.yml s3://snowvue-swagger-docs/SwaggerDocumentation.yml"
   },
