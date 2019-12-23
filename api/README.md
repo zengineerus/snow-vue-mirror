@@ -208,6 +208,159 @@ https://developers.google.com/maps/documentation/distance-matrix/intro
 username: sign in with google: benchsquad
 API KEY: 8cb314ac35194d85a7838e0d494a5743
 
+Request: `https://api.opencagedata.com/geocode/v1/json?q=39.755360+-105.008550&key=8cb314ac35194d85a7838e0d494a5743`
+Payload:
+
+```
+{
+    "documentation": "https://opencagedata.com/api",
+    "licenses": [
+        {
+            "name": "see attribution guide",
+            "url": "https://opencagedata.com/credits"
+        }
+    ],
+    "rate": {
+        "limit": 2500,
+        "remaining": 2499,
+        "reset": 1577145600
+    },
+    "results": [
+        {
+            "annotations": {
+                "DMS": {
+                    "lat": "39° 45' 19.55376'' N",
+                    "lng": "105° 0' 30.56184'' W"
+                },
+                "FIPS": {
+                    "county": "08031",
+                    "state": "08"
+                },
+                "MGRS": "13SDE9927200613",
+                "Maidenhead": "DM79ls81xh",
+                "Mercator": {
+                    "x": -11689491.575,
+                    "y": 4803135.025
+                },
+                "OSM": {
+                    "edit_url": "https://www.openstreetmap.org/edit?way=296656193#map=17/39.75543/-105.00849",
+                    "note_url": "https://www.openstreetmap.org/note/new#map=17/39.75543/-105.00849&layers=N",
+                    "url": "https://www.openstreetmap.org/?mlat=39.75543&mlon=-105.00849#map=17/39.75543/-105.00849"
+                },
+                "UN_M49": {
+                    "regions": {
+                        "AMERICAS": "019",
+                        "NORTHERN_AMERICA": "021",
+                        "US": "840",
+                        "WORLD": "001"
+                    },
+                    "statistical_groupings": [
+                        "MEDC"
+                    ]
+                },
+                "callingcode": 1,
+                "currency": {
+                    "alternate_symbols": [
+                        "US$"
+                    ],
+                    "decimal_mark": ".",
+                    "disambiguate_symbol": "US$",
+                    "html_entity": "$",
+                    "iso_code": "USD",
+                    "iso_numeric": "840",
+                    "name": "United States Dollar",
+                    "smallest_denomination": 1,
+                    "subunit": "Cent",
+                    "subunit_to_unit": 100,
+                    "symbol": "$",
+                    "symbol_first": 1,
+                    "thousands_separator": ","
+                },
+                "flag": "🇺🇸",
+                "geohash": "9xj64mr0hve4ukryxrez",
+                "qibla": 34.94,
+                "roadinfo": {
+                    "drive_on": "right",
+                    "road": "15th Street",
+                    "speed_in": "mph"
+                },
+                "sun": {
+                    "rise": {
+                        "apparent": 1577110740,
+                        "astronomical": 1577104920,
+                        "civil": 1577108940,
+                        "nautical": 1577106900
+                    },
+                    "set": {
+                        "apparent": 1577144340,
+                        "astronomical": 1577063760,
+                        "civil": 1577059800,
+                        "nautical": 1577061780
+                    }
+                },
+                "timezone": {
+                    "name": "America/Denver",
+                    "now_in_dst": 0,
+                    "offset_sec": -25200,
+                    "offset_string": "-0700",
+                    "short_name": "MST"
+                },
+                "what3words": {
+                    "words": "formed.wink.equal"
+                }
+            },
+            "bounds": {
+                "northeast": {
+                    "lat": 39.7556417,
+                    "lng": -105.0082162
+                },
+                "southwest": {
+                    "lat": 39.7552215,
+                    "lng": -105.0087627
+                }
+            },
+            "components": {
+                "ISO_3166-1_alpha-2": "US",
+                "ISO_3166-1_alpha-3": "USA",
+                "_type": "building",
+                "building": "Riverpoint Building",
+                "city": "Denver",
+                "continent": "North America",
+                "country": "United States of America",
+                "country_code": "us",
+                "county": "Denver County",
+                "house_number": "2300",
+                "neighbourhood": "Highland",
+                "postcode": "80202",
+                "road": "15th Street",
+                "state": "Colorado",
+                "state_code": "CO"
+            },
+            "confidence": 10,
+            "formatted": "Riverpoint Building, 2300 15th Street, Denver, CO 80202, United States of America",
+            "geometry": {
+                "lat": 39.7554316,
+                "lng": -105.0084894
+            }
+        }
+    ],
+    "status": {
+        "code": 200,
+        "message": "OK"
+    },
+    "stay_informed": {
+        "blog": "https://blog.opencagedata.com",
+        "twitter": "https://twitter.com/opencagedata"
+    },
+    "thanks": "For using an OpenCage API",
+    "timestamp": {
+        "created_http": "Mon, 23 Dec 2019 19:49:56 GMT",
+        "created_unix": 1577130596
+    },
+    "total_results": 1
+}
+```
+
 TODO:
 
 - output validation from external API's
