@@ -3,8 +3,18 @@ from unittest.mock import MagicMock
 from traffic.traffic import Traffic
 import time
 from boto3.dynamodb.conditions import Key
+import boto3
+
+class MockBoto:
+  def dynamo():
+    pass
 
 class TestTraffic(unittest.TestCase):
+  @classmethod
+  def setUpClass(cls):
+    mock_boto = MockBoto()
+    boto3.dynamo = MagicMock(return_value=mock_boto)
+
   def test_convert_seconds_to_hours_and_minutes(self):
     seconds = 55555
     hours = "15"
