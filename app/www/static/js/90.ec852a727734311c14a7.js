@@ -1,2 +1,0 @@
-webpackJsonp([90],{ewd3:function(n,t,e){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),e.d(t,"startStatusTap",function(){return i});var o=e("OOGu"),i=(e("ifbh"),function(){var n=window;n.addEventListener("statusTap",function(){Object(o.g)(function(){var t=n.innerWidth,e=n.innerHeight,i=document.elementFromPoint(t/2,e/2);if(i){var c=i.closest("ion-content");c&&c.componentOnReady().then(function(){Object(o.m)(function(){return c.scrollToTop(300)})})}})})})}});
-//# sourceMappingURL=90.ec852a727734311c14a7.js.map

@@ -10,3 +10,4 @@ selenium-debug.log
 selenium-server.log
 platforms/
 www/index.html
+app/www/static/
