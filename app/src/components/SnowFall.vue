@@ -7,19 +7,19 @@
     <ion-card-content>
       <ion-grid v-if="snowData.SnowReport">
         <ion-row>
-          <ion-col>
-            <ion-label>Overnight SnowFall</ion-label>
+          <ion-col id="overnight-header">
+            <ion-label >Overnight SnowFall</ion-label>
           </ion-col>
-          <ion-col>
+          <ion-col  id="day-header">
             <ion-label>24 Hour Snow</ion-label>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col>
-            <ion-label id="overnight">{{snowData.SnowReport[0].Depth.Inches}} inches</ion-label>
+          <ion-col id="overnight-label">
+            <ion-label id="overnight">{{snowData.SnowReport[0].Depth.Inches}} in</ion-label>
           </ion-col>
-          <ion-col>
-            <ion-label id="day">{{snowData.SnowReport[1].Depth.Inches}} inches</ion-label>
+          <ion-col id="day-label">
+            <ion-label id="day">{{snowData.SnowReport[1].Depth.Inches}} in</ion-label>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -33,11 +33,19 @@
   background-color: #222222b0;
   border-bottom: 1px;
 }
-#new-snow .left {
-  display: inline;
+#new-snow #overnight-header{
+  text-align: left;
 }
-#new-snow .right {
-  display: inline;
+#new-snow #day-header{
+  text-align: left;
+}
+#new-snow #overnight-label{
+  text-align: left;
+  text-transform: uppercase;
+}
+#new-snow #day-label{
+  text-align: left;
+  text-transform: uppercase;
 }
 </style>
 
