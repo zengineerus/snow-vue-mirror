@@ -49,6 +49,7 @@ e2e:
   <<: *selenium-image
   tags:
      - snow-md3
+    #run pipeline
     #- dind
   stage: e2e
   script:
