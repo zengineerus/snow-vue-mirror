@@ -20,13 +20,11 @@
     "e2e-ios": "yarn workspace app e2e --env ios",
     "docker:build": "yarn workspace app docker:build",
     "interactive": "yarn workspace app interactive",
-    "docker": "yarn workspace app docker"
+    "docker": "yarn workspace app docker",
+    "lint": "yarn workspace app lint --fix",
+    "fake": "json-server app/mock-api.json"
   },
   "dependencies": {
-    "@ionic/core": "^4.11.7",
-    "@ionic/vue": "^0.0.4",
-    "ionicons": "4.5.9-1",
-    "newman": "^4.5.7",
-    "vue": "^2.6.10"
+
   }
 }
