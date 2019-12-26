@@ -18,7 +18,7 @@ module.exports = {
       // .assert.regex("h1#resortId", /stone/g)
 
       .waitForElementVisible('#overnight')
-      .assert.regex('#overnight', /inches/g)
+      .assert.regex('#overnight', /in/g)
       .end()
   }
 };
