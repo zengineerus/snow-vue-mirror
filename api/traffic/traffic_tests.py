@@ -13,7 +13,7 @@ class TestTraffic(unittest.TestCase):
   @classmethod
   def setUpClass(cls):
     mock_boto = MockBoto()
-    boto3.dynamo = MagicMock(return_value=mock_boto)
+    boto3.resource = MagicMock(return_value=mock_boto)
 
   def test_convert_seconds_to_hours_and_minutes(self):
     seconds = 55555
