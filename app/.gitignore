@@ -16,6 +16,6 @@ selenium-debug.log
 *.njsproj
 *.sln
 
-platforms
+platforms/
 plugins
-www
+app/www/index.html
