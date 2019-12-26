@@ -46,7 +46,7 @@ python unittest:
     AWS_SECRET_ACCESS_KEY: qkPGxchepBOkdTJddItiQsJQc19p4a5nLe8YosPO
 
 e2e:
-  <<: *selenium-image
+  # <<: *selenium-image
   tags:
      - snow-md3
     #run pipeline
