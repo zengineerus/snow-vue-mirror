@@ -30,7 +30,6 @@ class Weather:
         return self.status
 
     def store_status(self):
-        # store status in dynamoDB
         print(self.status)
 
     def get_weather_data(self):
@@ -45,13 +44,13 @@ class Weather:
                 Limit=1
             )
         except Exception as DynamoDBError:
-            snow_data["error"] = "DynamoDBError"
+            snow_data["error"] = DynamoDBError
             return snow_data
 
         try:
             snow_data = dynamo_report["Items"][0]
         except Exception as NoWeatherDataFound:
-            snow_data["error"] = "NoWeatherDataFound"
+            snow_data["error"] = NoWeatherDataFound
         
         return snow_data
 

@@ -17,10 +17,10 @@ class KeystoneWeather(Weather):
         # store snowReportSections in dynamoDB
         print(self.snow_report_sections)
 
-    # def run_snow_report(self):
-    #     super().set_status()
-    #     self.set_snow_report_sections()
-    #     return self.get_snow_report_sections()
+    def run_snow_report(self):
+        super().set_status()
+        self.set_snow_report_sections()
+        return self.transform_api_data(self.get_snow_report_sections())
 
     def transform_api_data(self, data):
         # error handle
