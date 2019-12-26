@@ -48,7 +48,8 @@ python unittest:
 e2e:
   <<: *selenium-image
   tags:
-    - dind
+     - snow-md3
+    #- dind
   stage: e2e
   script:
     - yarn install
