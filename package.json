@@ -20,7 +20,7 @@
     "setup:android": "yarn workspace app setup:android",
     "setup:ios": "yarn workspace app setup:ios",
 
-    "test": "yarn workspaces run test",
+    "test": "yarn workspace app run test && yarn workspace api run unittest",
     "test:app": "yarn workspace app test",
     "test:app:unit": "yarn workspace app unit",
     "test:api": "yarn workspace api unittest",
