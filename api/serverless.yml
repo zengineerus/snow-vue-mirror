@@ -122,12 +122,12 @@ functions:
           cors: true
           method: get
           documentation:
-            summary: 'Retrieve weather information'
+            summary: 'Request resort weather data, add timestamp of retrieval, and reformat data for response'
             description: 'Retrieve weather for particular resort'
             methodResponses:
               - statusCode: '200'
                 responseBody:
-                  description: 'Return current weather data with timestamp or status code and error message'
+                  description: 'Return current weather data with UTC ISO formatted timestamp or status code and error message'
                 responseModels:
                   'application/json': 'WeatherResponse'
               - statusCode: '204'
