@@ -51,7 +51,10 @@ This will allow us to run "yarn fake" that will setup a mock web server in http:
 
 #### API
 
-TBD
+## Commands
+
+`yarn workspace api unittest`
+
 
 ## Commands
 
