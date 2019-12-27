@@ -8,10 +8,10 @@
       <ion-grid v-if="snowData.SnowReport">
         <ion-row>
           <ion-col id="overnight-header">
-            <ion-label >Overnight SnowFall</ion-label>
+            <ion-label>New Snow</ion-label>
           </ion-col>
           <ion-col  id="day-header">
-            <ion-label>24 Hour Snow</ion-label>
+            <ion-label>Base Snow</ion-label>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -33,18 +33,10 @@
   background-color: #222222b0;
   border-bottom: 1px;
 }
-#new-snow #overnight-header{
-  text-align: left;
-}
-#new-snow #day-header{
-  text-align: left;
-}
 #new-snow #overnight-label{
-  text-align: left;
   text-transform: uppercase;
 }
 #new-snow #day-label{
-  text-align: left;
   text-transform: uppercase;
 }
 </style>

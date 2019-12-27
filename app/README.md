@@ -20,3 +20,9 @@ yarn global add web-driver
 Some resources we followed during the development of this app:  
 Vue ionic cordova integration:  
 https://www.joshmorony.com/learning-vue-for-ionic-angular-developers-part-5/
+
+
+HOW TO FIX JAVA_HOME
+Find Java 1.8 (not 1.13) and it to
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home
+export PATH=$PATH:$JAVA_HOME/bin

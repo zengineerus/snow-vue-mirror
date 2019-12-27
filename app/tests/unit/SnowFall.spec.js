@@ -36,7 +36,7 @@ describe('SnowFall.vue', () => {
 
         await Vue.nextTick();
 
-        expect(wrapper.text()).toContain('Overnight SnowFall 24 Hour Snow 11 in 22 in');
+        expect(wrapper.text()).toContain('New Snow Base Snow 11 in 22 in');
     });
 
     test('should show error when can\'t retrieve snow data', async() => {

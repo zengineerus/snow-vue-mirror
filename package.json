@@ -8,19 +8,31 @@
   "scripts": {
     "start": "yarn workspaces run start",
     "start:app": "yarn workspace app start",
+    "android": "yarn workspace app build:android && yarn workspace app android",
+    "ios": "yarn workspace app build:ios && yarn workspace app ios",
     "start:api": "yarn workspace api start",
+
     "build": "yarn workspace app build",
     "build:ios": "yarn workspace app build:ios",
     "build:android": "yarn workspace app build:android",
+    "install:android": "adb install /Users/dev1/workspace/snow-vue/app/platforms/android/app/build/outputs/apk/debug/app-debug.apk",
+    
+    "setup:android": "yarn workspace app setup:android",
+    "setup:ios": "yarn workspace app setup:ios",
+
     "test": "yarn workspaces run test",
     "test:app": "yarn workspace app test",
     "test:app:unit": "yarn workspace app unit",
     "test:api": "yarn workspace api test",
+    
     "e2e": "yarn workspace app e2e",
     "e2e-ios": "yarn workspace app e2e --env ios",
+    "e2e-android": "yarn workspace app e2e --env android",
+   
     "docker:build": "yarn workspace app docker:build",
-    "interactive": "yarn workspace app interactive",
+    "act": "yarn workspace app interactive",
     "docker": "yarn workspace app docker",
+
     "lint": "yarn workspace app lint --fix",
     "fake": "json-server app/mock-api.json"
   },

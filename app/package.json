@@ -16,6 +16,10 @@
     "e2e": "node test/e2e/runner.js",
     "interactive": "docker run -p 8080:8080 -it snowvue /bin/bash",
     "start": "npm run dev",
+    "android": "cordova run android",
+    "ios": "cordova run ios",
+    "setup:android": "cordova platform add android",
+    "setup:ios": "cordova platform add ios",
     "test": "npm run unit && npm run e2e",
     "unit": "vue-cli-service test:unit"
   },
