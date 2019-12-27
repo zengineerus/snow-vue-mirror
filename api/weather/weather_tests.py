@@ -3,11 +3,12 @@ from unittest.mock import MagicMock, patch
 from weather.weather import Weather
 import urllib.request as urllib
 import json
+import boto3
 from boto3.dynamodb.conditions import Key
 
 
 class FakeResponse():
-    def read():
+    def read(self):
         pass
 
 class TestWeather(unittest.TestCase):
@@ -131,20 +132,3 @@ class TestWeather(unittest.TestCase):
             Limit=1
             )
         self.assertEqual(actual_data, mock_data["Items"][0])
-
-    def test_get_weather_data_from_dynamo_has_no_data(self):
-        weather = Weather("whatever")
-        weather.resort_name = "tea"
-        weather.table.query = MagicMock(return_value={"Items": []})
-
-        dynamo_result = weather.get_weather_data()
-        self.assertEqual(dynamo_result, {"error": "NoWeatherDataFound"})
-
-
-    def test_get_weather_data_from_dynamo_fails(self):
-        weather = Weather("whatever")
-        weather.resort_name = "tea"
-        weather.table.query = MagicMock(side_effect=Exception("DynamoDBError"))
-
-        dynamo_result = weather.get_weather_data()
-        self.assertEqual(dynamo_result, {"error": "DynamoDBError"})

@@ -164,8 +164,6 @@ functions:
             summary: 'Retrieve traffic estimate'
             description: 'Retrieve traffic estimate from location. Defaults to zipcode 80202'
             queryParams:
-              - name: 'zipcode'
-                description: 'Five digit US zipcode'
               - name: 'location'
                 description: "User's five digit zipcode"
             methodResponses:
