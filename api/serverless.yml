@@ -99,20 +99,26 @@ custom:
         schema:
           type: 'object'
           properties:
-            SnowReport:
-              type: 'array'
-              items:
-                type: 'object'
+            error:
+              type: null
+            overnight:
+              type: "object"
                 properties:
-                  Depth:
-                    type: 'object'
-                    properties:
-                      Inches:
-                        type: 'string'
-                      Centimeters:
-                        type: 'string'
-                  Description:
-                    type: 'string'
+                  inches:
+                    type: "string"
+                  centimeters:
+                    type: "string"
+            twentyFourHour:
+              type: "object"
+                properties:
+                  inches:
+                    type: "string"
+                  centimeters:
+                    type: "string"
+            timestamp:
+              type: "string"
+            resort:
+              type: "string"
 functions:
   weather:
     handler: weather/weather_handler.weatherHandler
