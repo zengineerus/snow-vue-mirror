@@ -32,6 +32,48 @@ class TestKeystoneWeather(unittest.TestCase):
             keystoneWeather.set_status()
             self.assertEqual(keystoneWeather.status, {"Error": "Unavailable"})
 
+    def test_run_snow_report_success(self):
+        keystone_weather = KeystoneWeather()
+            keystoneWeather.status_url = "test"
+            urlrequest_mock.return_value = "test"
+
+            mock_response = urlopen_mock.return_value
+            mock_response.read.return_value = {
+                "SnowReportSections": [
+                    {
+                        "Depth": {
+                            "Inches": "5",
+                            "Centimeters": "12.70"
+                        },
+                        "Description": "Overnight <br> Snowfall"
+                    },
+                    {
+                        "Depth": {
+                            "Inches": "8",
+                            "Centimeters": "20.32"
+                        },
+                        "Description": "24 Hour<br/>Snowfall"
+                    }
+                    ]
+            }
+            result = keystone_weather.run_snow_report()
+            expected_data = {
+            "overnight": {
+                "inches": "5",
+                "centimeters": "12.70" 
+            },
+            "twentyFourHour": {
+                "inches": "8",
+                "centimeters": "20.32"
+            },
+            "timestamp": datetime.utcnow().isoformat(),
+            "resort": "Keystone"
+        }
+        self.assertEqual(result["overnight"], expected_data["overnight"])
+        self.assertEqual(result["twentyFourHour"], expected_data["twentyFourHour"])
+        self.assertEqual(result["resort"], expected_data["resort"])
+        self.assertAlmostEqual(datetime.fromisoformat(result["timestamp"]), datetime.fromisoformat(expected_data["timestamp"]), delta=timedelta(seconds=1))        
+            
     def test_set_status_raises_exception_when_read_returns_none(self):
         with patch('urllib.request.urlopen') as urlopen_mock, patch('urllib.request.Request') as urlrequest_mock:
             keystoneWeather = KeystoneWeather()

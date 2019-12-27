@@ -19,8 +19,7 @@ class KeystoneWeather(Weather):
 
     def run_snow_report(self):
         super().set_status()
-        self.set_snow_report_sections()
-        return self.transform_api_data(self.get_snow_report_sections())
+        return self.transform_api_data(self.get_status())
 
     def transform_api_data(self, data):
         # error handle

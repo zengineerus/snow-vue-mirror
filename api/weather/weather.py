@@ -18,9 +18,6 @@ class Weather:
             request = urllib.Request(self.status_url)
             response = urllib.urlopen(request)
             response_data = response.read()
-            # if response_data is None or isinstance(response_data, str):
-            #     self.status = {"Error": "Unavailable"}
-            # else:
             self.status = json.loads(response_data)
         except Exception as e:
             print(e)
