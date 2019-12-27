@@ -15,7 +15,7 @@
     "test": "yarn workspaces run test",
     "test:app": "yarn workspace app test",
     "test:app:unit": "yarn workspace app unit",
-    "test:api": "yarn workspace api test",
+    "test:api": "yarn workspace api unittest",
     "e2e": "yarn workspace app e2e",
     "e2e-ios": "yarn workspace app e2e --env ios",
     "docker:build": "yarn workspace app docker:build",
