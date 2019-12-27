@@ -8,6 +8,7 @@
 
 .selenium-image: &selenium-image
   image: 'registry-gitlab.asynchrony.com/proj-1678/snow-vue'
+#need to replace this image with the docker image we built! ^^^
 
 stages:
   - test

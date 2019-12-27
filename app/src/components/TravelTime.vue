@@ -1,17 +1,14 @@
 <template>
   <ion-card id="travel-time" name="ion_card" color="secondary">
 
-    <ion-card-content
-      v-if="this.location.Location || travelTime.TrafficReport"
-      name="ion_content"
-    >
+    <ion-card-content>
       <ion-grid v-if="travelTime.TrafficReport">
         <ion-row>
           <ion-col>
-            <ion-label>Travel Time</ion-label>
+            <ion-label id="travel-time-label">Travel Time</ion-label>
           </ion-col>
           <ion-col>
-            <ion-label>Home Zip</ion-label>
+            <ion-label id="start-zip-label">Start Zip</ion-label>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -20,17 +17,17 @@
               <ion-label>{{travelTime.TrafficReport.travel_time.minutes}} minutes</ion-label>
           </ion-col>
           <ion-col>
-              <ion-label>{{travelTime.TrafficReport.start_location}}</ion-label>
+              <ion-label>{{travelTime.TrafficReport.start_location}} <ion-icon name="create"></ion-icon></ion-label>
           </ion-col>
         </ion-row>
       </ion-grid>
       <ion-label v-else>Server is unavailable.</ion-label>
 
     </ion-card-content>
-    <ion-card-content v-else>
+    <!-- <ion-card-content v-else>
         <ion-input name="zip" v-model="zip">Enter Zip</ion-input>
         <ion-button v-on:click="updateLocation()">submit</ion-button>
-    </ion-card-content>
+    </ion-card-content> -->
   </ion-card>
 </template>
 
@@ -44,6 +41,12 @@
   }
    #travel-time .right{
     display: inline;
+  }
+  #travel-time #travel-time-label{
+    text-transform: uppercase;
+  }
+  #travel-time #start-zip-label{
+    text-transform: uppercase;
   }
 </style>
 
