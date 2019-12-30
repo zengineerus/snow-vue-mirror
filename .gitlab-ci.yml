@@ -8,6 +8,7 @@
 
 .selenium-image: &selenium-image
   image: 'registry-gitlab.asynchrony.com/proj-1678/snow-vue'
+#need to replace this image with the docker image we built! ^^^
 
 stages:
   - test
@@ -26,7 +27,7 @@ stages:
 javascript unittest:
   <<: *node-image
   tags:
-    - snow-vue
+    - dind
   stage: test
   script:
     - yarn install
@@ -36,17 +37,21 @@ javascript unittest:
 python unittest:
   <<: *python-image
   tags:
-    - snow-vue
+    - dind
   stage: test
   script:
     - cd api
     - pip3 install boto3
     - python3 -m unittest discover -p *_test*.py
+  variables:
+    AWS_SECRET_ACCESS_KEY: qkPGxchepBOkdTJddItiQsJQc19p4a5nLe8YosPO
 
 e2e:
-  <<: *selenium-image
+  # <<: *selenium-image
   tags:
-    - snow-vue
+     - snow-md3
+    #run pipeline
+    #- dind
   stage: e2e
   script:
     - yarn install
@@ -56,7 +61,7 @@ e2e:
     HUB_PORT: 4723
 # backend deploy to dev:
 #   tags:
-#     - snow-vue
+#     - dind
 #   stage: backend-deploy-to-dev
 #   script:
 #     - yarn workspace api deploy

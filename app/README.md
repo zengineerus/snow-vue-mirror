@@ -1,31 +1,28 @@
-# app
+# Front End Snow Vue Quick Start Guide and Notes Please add to and Keep update to date as much as possible
 
-> Front End Snow Vue
+> Running Website  
+install yarn  
+`yarn`  
+`yarn start`
 
-## Build Setup
+> Testing  App  
+`yarn test`  
+install java (https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
+add java to environment variables  
+`yarn e2e`  
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+//not sure if this command was needed  
+yarn global add web-driver
 
-# build for production with minification
-npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
 
-# run unit tests
-npm run unit
+Some resources we followed during the development of this app:  
+Vue ionic cordova integration:  
+https://www.joshmorony.com/learning-vue-for-ionic-angular-developers-part-5/
 
-# run e2e tests
-npm run e2e
 
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
+HOW TO FIX JAVA_HOME
+Find Java 1.8 (not 1.13) and it to
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home
+export PATH=$PATH:$JAVA_HOME/bin
