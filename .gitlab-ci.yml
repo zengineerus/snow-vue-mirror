@@ -18,6 +18,9 @@ stages:
 
 
 build site:
+  <<: *node-image
+  tags:
+    - dind
   image: node:latest
   stage: build
   script:
