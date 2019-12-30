@@ -30,9 +30,7 @@
               <ion-label>
                 {{ travelTime.TrafficReport.start_location }}
               </ion-label>
-              <AlertIcon />
-                <ion-icon name='create'></ion-icon>
-                <i class="icon ion-plus"></i>
+              <ion-buttton >change zip</ion-buttton>
             </ion-col>
           </ion-row>
         </ion-grid>
