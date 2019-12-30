@@ -35,7 +35,7 @@ module.exports = {
         acceptSslCerts: true,
         chromeOptions: {
           w3c: false,
-          args: ["--no-sandbox", "headless"]
+          args: ["--no-sandbox", "--headless"]
         }
       }
     },
