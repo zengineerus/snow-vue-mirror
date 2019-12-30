@@ -69,8 +69,8 @@ frontend-deploy-to-dev:
   only:
     - master
   script:
-  - sudo apt-get update
-  - sudo apt-get installe python3.6
+  - apt-get update
+  - apt-get installe python3.6
 #     - yarn install
 #     - yarn build
 #     - cd app/www
