@@ -99,20 +99,26 @@ custom:
         schema:
           type: 'object'
           properties:
-            SnowReport:
-              type: 'array'
-              items:
-                type: 'object'
+            error:
+              type: null
+            overnight:
+              type: "object"
                 properties:
-                  Depth:
-                    type: 'object'
-                    properties:
-                      Inches:
-                        type: 'string'
-                      Centimeters:
-                        type: 'string'
-                  Description:
-                    type: 'string'
+                  inches:
+                    type: "string"
+                  centimeters:
+                    type: "string"
+            twentyFourHour:
+              type: "object"
+                properties:
+                  inches:
+                    type: "string"
+                  centimeters:
+                    type: "string"
+            timestamp:
+              type: "string"
+            resort:
+              type: "string"
 functions:
   weather:
     handler: weather/weather_handler.weatherHandler
@@ -122,12 +128,12 @@ functions:
           cors: true
           method: get
           documentation:
-            summary: 'Retrieve weather information'
+            summary: 'Request resort weather data, add timestamp of retrieval, and reformat data for response'
             description: 'Retrieve weather for particular resort'
             methodResponses:
               - statusCode: '200'
                 responseBody:
-                  description: 'Return current weather data with timestamp or status code and error message'
+                  description: 'Return current weather data with UTC ISO formatted timestamp or status code and error message'
                 responseModels:
                   'application/json': 'WeatherResponse'
               - statusCode: '204'
@@ -143,6 +149,16 @@ functions:
         - traffic/**
         # - swagger/**
     role: arn:aws:iam::963760208122:role/lambda_cli_role
+  cron_weather:
+    handler: weather/save_weather_handler.saveWeatherHandler
+    events:
+      - schedule:
+        name: cron_weather
+        description: 'CRON task that polls for weather data at midnight, 6AM - 9AM, noon, and 6PM and insert data into dynamoDB table'
+        rate: cron(0 0,6,7,8,9,12,6 * * *)
+        enabled: false
+    role: arn:aws:iam::963760208122:role/lambda_cli_role
+
   traffic:
     handler: traffic/traffic_handler.trafficHandler
     events:
