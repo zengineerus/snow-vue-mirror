@@ -10,9 +10,9 @@
   image: 'registry-gitlab.asynchrony.com/proj-1678/snow-vue'
 
 stages:
-  - test
-  - e2e
-  - backend-deploy-to-dev
+  # - test
+  # - e2e
+  # - backend-deploy-to-dev
   - frontend-deploy-website
   # - deploy-to-prod
 
@@ -69,8 +69,8 @@ frontend-deploy-to-dev:
   only:
     - master
   script:
-    - uname
-    - uname -r
+  - sudo apt-get update
+  - sudo apt-get installe python3.6
 #     - yarn install
 #     - yarn build
 #     - cd app/www
