@@ -15,8 +15,6 @@ stages:
   # - backend-deploy-to-dev
   - frontend-deploy-website
 
-variable:
-
 
 build site:
   image: node:latest
