@@ -74,13 +74,13 @@ frontend-deploy-to-dev:
   - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
   - python get-pip.py
   - pip install awscli
-#     - yarn install
-#     - yarn build
-#     - cd app/www
+  - yarn install
+  - yarn build
+  - cd app/www
 #     - pwd
 #     - yum install -y python36u python36u-libs python36u-devel python36u-pip
 #     - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 #     - python get-pip.py
 #     - pip install awscli
-#     - aws s3 rm s3://mountainweatherreport.net/ --recursive
-#     - aws s3 cp ./ s3://mountainweatherreport.net/ --recursive #--exclude "*" --include "*.html"
+    - aws s3 rm s3://mountainweatherreport.net/ --recursive
+    - aws s3 cp ./ s3://mountainweatherreport.net/ --recursive #--exclude "*" --include "*.html"
