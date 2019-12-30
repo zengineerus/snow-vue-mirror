@@ -61,14 +61,16 @@ e2e:
 #   script:
 #     - yarn workspace api deploy
 
-# frontend-deploy-to-dev:
-#   <<: *node-image
-#   tags:
-#     - dind
-#   stage: frontend-deploy-website
-#   only:
-#     - master
-#   script:
+frontend-deploy-to-dev:
+  <<: *node-image
+  tags:
+    - dind
+  stage: frontend-deploy-website
+  only:
+    - master
+  script:
+    - uname
+    - uname -r
 #     - yarn install
 #     - yarn build
 #     - cd app/www
