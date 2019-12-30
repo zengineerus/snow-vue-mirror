@@ -71,6 +71,9 @@ frontend-deploy-to-dev:
   script:
   - apt-get update
   - apt-get install python-minimal
+  - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  - python get-pip.py
+  - pip install awscli
 #     - yarn install
 #     - yarn build
 #     - cd app/www
