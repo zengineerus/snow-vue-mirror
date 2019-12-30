@@ -18,7 +18,6 @@ export default {
 
 body{
     background-color: #222;
-    min-height: 1000px;
     color: white;
 }
 
@@ -29,8 +28,8 @@ body{
 
 .center-container {
     justify-content: center;
-
-    min-height: 600px;
+    width: 100%;
+    max-width: 500px;
     background-image: url(' ./assets/mountains.jpeg');
     /* background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url(' ./assets/mountains.jpeg'); */
     /* background-image: linear-gradient(to bottom, #b331237a, #9b120617), url(' ./assets/mountains.jpeg'); */
