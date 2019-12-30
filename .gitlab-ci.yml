@@ -10,10 +10,11 @@
   image: 'registry-gitlab.asynchrony.com/proj-1678/snow-vue'
 
 stages:
+  - build
   - test
   - e2e
   # - backend-deploy-to-dev
-  # - frontend-deploy-website
+  - frontend-deploy-website
 
 
 build site:
