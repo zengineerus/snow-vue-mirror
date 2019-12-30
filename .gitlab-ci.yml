@@ -10,50 +10,52 @@
   image: 'registry-gitlab.asynchrony.com/proj-1678/snow-vue'
 
 stages:
-  # - test
-  # - e2e
+  - test
+  - e2e
   # - backend-deploy-to-dev
   - frontend-deploy-website
-  # - deploy-to-prod
 
-# build site:
-#   image: node:latest
-#   stage: build
-#   script:
-#     - yarn install --progress=false
-#     - yarn run build
+variable:
 
-# javascript unittest:
-#   <<: *node-image
-#   tags:
-#     - dind
-#   stage: test
-#   script:
-#     - yarn install
-#     - cd app
-#     - yarn unit
 
-# python unittest:
-#   <<: *python-image
-#   tags:
-#     - dind
-#   stage: test
-#   script:
-#     - cd api
-#     - pip3 install boto3
-#     - python3 -m unittest discover -p *_test*.py
+build site:
+  image: node:latest
+  stage: build
+  script:
+    - yarn install --progress=false
+    - yarn run build
 
-# e2e:
-#   <<: *selenium-image
-#   tags:
-#     - dind
-#   stage: e2e
-#   script:
-#     - yarn install
-#     - yarn e2e
-#   variables:
-#     HUB_HOST: 'hub'
-#     HUB_PORT: 4723
+javascript unittest:
+  <<: *node-image
+  tags:
+    - dind
+  stage: test
+  script:
+    - yarn install
+    - cd app
+    - yarn unit
+
+python unittest:
+  <<: *python-image
+  tags:
+    - dind
+  stage: test
+  script:
+    - cd api
+    - pip3 install boto3
+    - python3 -m unittest discover -p *_test*.py
+
+e2e:
+  <<: *selenium-image
+  tags:
+    - dind
+  stage: e2e
+  script:
+    - yarn install
+    - yarn e2e
+  variables:
+    HUB_HOST: 'hub'
+    HUB_PORT: 4723
 # backend deploy to dev:
 #   tags:
 #     - dind
@@ -77,6 +79,6 @@ frontend-deploy-to-dev:
   - yarn install
   - yarn build
   - cd app/www
-  - aws s3 rm s3://mountainweatherreport.net/ --recursive
-  - aws s3 cp ./ s3://mountainweatherreport.net/ --recursive
+  # - aws s3 rm s3://mountainweatherreport.net/ --recursive
+  # - aws s3 cp ./ s3://mountainweatherreport.net/ --recursive
     #--exclude "*" --include "*.html"
