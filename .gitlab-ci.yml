@@ -13,7 +13,6 @@ stages:
   - build
   - test
   - e2e
-  # - backend-deploy-to-dev
   - frontend-deploy-website
 
 
